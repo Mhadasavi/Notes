@@ -26,7 +26,8 @@ Abstraction is a process of hiding the implementation and showing only the funct
 -> Inheritance is the concept that is used for code reusability.
 -> Types of inheritance -
    1) Single Inheritance: When a class is derived from a single base class then the inheritance is called single inheritance.
-   2) Multilevel Inheritance: When a derived class is created from another derived class, then that type of inheritance is called multilevel inheritance.	           3) Hierarchical Inheritance: When more than one derived class is created from a single base class then it is called Hierarchical inheritance.
+   2) Multilevel Inheritance: When a derived class is created from another derived class, then that type of inheritance is called multilevel inheritance.	           
+   3) Hierarchical Inheritance: When more than one derived class is created from a single base class then it is called Hierarchical inheritance.
    4) Hybrid Inheritance: Hybrid Inheritance is the inheritance that is the combination of any single, hierarchical, and multilevel inheritances.
    5) Multiple Inheritance: When a derived class is created from more than one base class then such type of inheritance is called multiple inheritances. But multiple       inheritances are not supported by .net using classes and can be done using interfaces.Multiple inheritance introduces much more complexity into a class       hierarchy.
 -> Rules to be considered while working with inheritance in C# -
