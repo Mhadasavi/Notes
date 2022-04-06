@@ -1,0 +1,22 @@
+* Dotnet code application starts as a console application.
+
+* MVC
+- Model=> Model represents data. It also represent table so if a class is a model, then all the properties of that class will be column of a table.
+- View=> View represents the user interface.
+- Controller=> Controller handles the user request and acts as an interface between Model & View. The controller uses the model as well as view to process that request   and then it returns back response.
+    So, When a user clicks something on website, a request comes to controller, it will hit any of the action methods that we have defined inside the controller. Now     controller uses the model and it will fetch all the data that it needs to display in a view. Then it passes data to view, so that view can render the final page that   user can see. Then View will send the request back to the controller. And then based on whatever is rendered, a response will be sent back and the user will be able    to see the page.
+
+* Partial Views - It is similar to view components. It is basically a view that we want to consume in multiple places in application.
+
+* _ViewImports.cshtml - A mechanism to make directive's available to reserve page globally so we don't have to add them to pages individually. @addTagHelper -  all the   default tag helpers will be added to all of the razor pages in application.
+
+* _ViewStart.cshtml - It set values that all the other views will have to use.
+
+* In model, we used [key] annotation, this annotation tells entity framework that this column needs to be identity column and a primary key for our table.
+
+* For pushing table into database, we use model property in applicationdbcontext class. After creating model property in applicationdbcontext, we have to register this   in startup.cs file for using this db context in application. In configureService(), we add services.adddbcontext<>();
+
+* For using validations, we can use required annotation in model, range for min & max characters. In view, we have to use asp-validation-summary="Model-Only" & asp-validation-for tags. In controller, we can use modelstate.isvalid().
+
+Query
+1. Extension method?

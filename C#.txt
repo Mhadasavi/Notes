@@ -1,0 +1,36 @@
+Basics are written on hard copy. We are starting from Abstraction here.
+
+* Abstraction
+ =============
+
+Abstraction is a process of hiding the implementation and showing only the functionality to the user.ex-we send sms where we type msg and send the msg,we don't know the internal processing about the message delivery.There are 2 ways to achieve abstraction- abstract class(0-100%) and interface(100%).
+
+* Abstraction vs Encapsulation
+ ==============================
+-> Abstraction is the process of gaining 	Encapsulation is the process to 
+   the information.				contain the information.
+
+-> Abstraction is the method of hiding 		Encapsulation is the method to 
+   the unwanted information.			hide the data in a single unit 
+						along with a method to protect
+						info. from outside.
+
+-> We can implement abstraction using		It can be implemented by access
+   abstract classes and interfaces.		modifiers.
+
+* Inheritance
+ =============
+
+-> The process of creating a new class from an existing class such that the new class acquires all the properties and behaviors of the existing class is called inheritance.
+-> The properties (or behaviors) are transferred from which class is called the superclass or parent class or base class whereas the class which derives the properties or behaviors from the superclass is known as a subclass or child class or derived class. 
+-> Inheritance is the concept that is used for code reusability.
+-> Types of inheritance -
+   1) Single Inheritance: When a class is derived from a single base class then the inheritance is called single inheritance.
+   2) Multilevel Inheritance: When a derived class is created from another derived class, then that type of inheritance is called multilevel inheritance.	           3) Hierarchical Inheritance: When more than one derived class is created from a single base class then it is called Hierarchical inheritance.
+   4) Hybrid Inheritance: Hybrid Inheritance is the inheritance that is the combination of any single, hierarchical, and multilevel inheritances.
+   5) Multiple Inheritance: When a derived class is created from more than one base class then such type of inheritance is called multiple inheritances. But multiple       inheritances are not supported by .net using classes and can be done using interfaces.Multiple inheritance introduces much more complexity into a class       hierarchy.
+-> Rules to be considered while working with inheritance in C# -
+   Rule1: In inheritance, the constructor of the parent class must be accessible to its child class otherwise the inheritance will not possible because when we create    the child class object first it goes and calls the parent class constructor so that the parent class variable will be initialized and we can consume them under the    child class.
+   NOTE: The reason why a child class internally calls its parent class constructor is to initialize parent class and can consume them under child class.
+   Rule2: In inheritance, the child classes can consume the parent class members but the parent class does not consume child class members that are purely defined in    the child class.
+-> if you don’t want to give accessibility of the base class members to the non-derived class (in this case class Program) and would like to give derived class    (Employee) then we need to use protected to the members.
