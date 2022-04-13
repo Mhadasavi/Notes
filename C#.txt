@@ -3,9 +3,9 @@ Basics are written on hard copy. We are starting from Abstraction here.
 * Abstraction
  =============
 
-Abstraction is a process of hiding the implementation and showing only the functionality to the user.ex-we send sms where we type msg and send the msg,we don't know the internal processing about the message delivery.There are 2 ways to achieve abstraction- abstract class(0-100%) and interface(100%).
+-> Abstraction is a process of hiding the implementation and showing only the functionality to the user.ex-we send sms where we type msg and send the msg,we don't know the internal processing about the message delivery.There are 2 ways to achieve abstraction- abstract class(0-100%) and interface(100%).
 
-* Abstraction vs Encapsulation
+-> Abstraction vs Encapsulation
  ==============================
 -> Abstraction is the process of gaining 	Encapsulation is the process to 
    the information.				contain the information.
@@ -18,6 +18,25 @@ Abstraction is a process of hiding the implementation and showing only the funct
 -> We can implement abstraction using		It can be implemented by access
    abstract classes and interfaces.		modifiers.
 
+-> When do you choose interface over an abstract class or vice versa?
+   If we want some implementation that will be the same for all the derived classes, then it is better to go for an abstract class instead of an interface. With the interface, we can move our implementation to any class that implements the interface. With the abstract class, we can share the implementation for all the derived classes in one central place, and thus avoid code duplication in the derived classes.
+
+-> If a class inherits an interface, what are the 2 options available for that class?
+   Option 1: Provide Implementation for all the members inherited from the interface.
+Option 2: If the class does not wish to provide Implementation for all the members inherited from the interface, then the class has to be marked as abstract.
+
+-> A class inherits from 2 interfaces and both the interfaces have the same method name as shown below. How should the class implement the drive method for both Car and Bus interfaces?
+	class a:interface1,interface2{
+
+		void interface1.drive(){}
+		void interface2.drive(){}
+
+		static void main(){
+		a obj=new a();
+		(interface1)obj.drive();
+		(interface2)obj.drive();
+		}
+		}
 * Inheritance
  =============
 
@@ -35,3 +54,4 @@ Abstraction is a process of hiding the implementation and showing only the funct
    NOTE: The reason why a child class internally calls its parent class constructor is to initialize parent class and can consume them under child class.
    Rule2: In inheritance, the child classes can consume the parent class members but the parent class does not consume child class members that are purely defined in    the child class.
 -> if you don’t want to give accessibility of the base class members to the non-derived class (in this case class Program) and would like to give derived class    (Employee) then we need to use protected to the members.
+-> 
