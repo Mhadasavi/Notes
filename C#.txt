@@ -1,4 +1,22 @@
-Basics are written on hard copy. We are starting from Abstraction here.
+Basics are written on hard copy. We are starting from Inheritance here.
+
+* Inheritance
+ =============
+
+-> The process of creating a new class from an existing class such that the new class acquires all the properties and behaviors of the existing class is called inheritance.
+-> The properties (or behaviors) are transferred from which class is called the superclass or parent class or base class whereas the class which derives the properties or behaviors from the superclass is known as a subclass or child class or derived class. 
+-> Inheritance is the concept that is used for code reusability.
+-> Types of inheritance -
+   1) Single Inheritance: When a class is derived from a single base class then the inheritance is called single inheritance.
+   2) Multilevel Inheritance: When a derived class is created from another derived class, then that type of inheritance is called multilevel inheritance.	           
+   3) Hierarchical Inheritance: When more than one derived class is created from a single base class then it is called Hierarchical inheritance.
+   4) Hybrid Inheritance: Hybrid Inheritance is the inheritance that is the combination of any single, hierarchical, and multilevel inheritances.
+   5) Multiple Inheritance: When a derived class is created from more than one base class then such type of inheritance is called multiple inheritances. But multiple       inheritances are not supported by .net using classes and can be done using interfaces.Multiple inheritance introduces much more complexity into a class       hierarchy.
+-> Rules to be considered while working with inheritance in C# -
+   Rule1: In inheritance, the constructor of the parent class must be accessible to its child class otherwise the inheritance will not possible because when we create    the child class object first it goes and calls the parent class constructor so that the parent class variable will be initialized and we can consume them under the    child class.
+   NOTE: The reason why a child class internally calls its parent class constructor is to initialize parent class and can consume them under child class.
+   Rule2: In inheritance, the child classes can consume the parent class members but the parent class does not consume child class members that are purely defined in    the child class.
+-> if you don’t want to give accessibility of the base class members to the non-derived class (in this case class Program) and would like to give derived class    (Employee) then we need to use protected to the members.
 
 * Abstraction
  =============
@@ -23,7 +41,7 @@ Basics are written on hard copy. We are starting from Abstraction here.
 
 -> If a class inherits an interface, what are the 2 options available for that class?
    Option 1: Provide Implementation for all the members inherited from the interface.
-Option 2: If the class does not wish to provide Implementation for all the members inherited from the interface, then the class has to be marked as abstract.
+   Option 2: If the class does not wish to provide Implementation for all the members inherited from the interface, then the class has to be marked as abstract.
 
 -> A class inherits from 2 interfaces and both the interfaces have the same method name as shown below. How should the class implement the drive method for both Car and Bus interfaces?
 	class a:interface1,interface2{
@@ -37,21 +55,36 @@ Option 2: If the class does not wish to provide Implementation for all the membe
 		(interface2)obj.drive();
 		}
 		}
-* Inheritance
- =============
 
--> The process of creating a new class from an existing class such that the new class acquires all the properties and behaviors of the existing class is called inheritance.
--> The properties (or behaviors) are transferred from which class is called the superclass or parent class or base class whereas the class which derives the properties or behaviors from the superclass is known as a subclass or child class or derived class. 
--> Inheritance is the concept that is used for code reusability.
--> Types of inheritance -
-   1) Single Inheritance: When a class is derived from a single base class then the inheritance is called single inheritance.
-   2) Multilevel Inheritance: When a derived class is created from another derived class, then that type of inheritance is called multilevel inheritance.	           
-   3) Hierarchical Inheritance: When more than one derived class is created from a single base class then it is called Hierarchical inheritance.
-   4) Hybrid Inheritance: Hybrid Inheritance is the inheritance that is the combination of any single, hierarchical, and multilevel inheritances.
-   5) Multiple Inheritance: When a derived class is created from more than one base class then such type of inheritance is called multiple inheritances. But multiple       inheritances are not supported by .net using classes and can be done using interfaces.Multiple inheritance introduces much more complexity into a class       hierarchy.
--> Rules to be considered while working with inheritance in C# -
-   Rule1: In inheritance, the constructor of the parent class must be accessible to its child class otherwise the inheritance will not possible because when we create    the child class object first it goes and calls the parent class constructor so that the parent class variable will be initialized and we can consume them under the    child class.
-   NOTE: The reason why a child class internally calls its parent class constructor is to initialize parent class and can consume them under child class.
-   Rule2: In inheritance, the child classes can consume the parent class members but the parent class does not consume child class members that are purely defined in    the child class.
--> if you don’t want to give accessibility of the base class members to the non-derived class (in this case class Program) and would like to give derived class    (Employee) then we need to use protected to the members.
--> 
+* interface
+ ===========
+
+-> Interface is a blueprint of a class.It is a mechanism to achieve abstraction and multiple inheritance and loose coupling.
+-> What is the need for an interface when we have the abstract class to define abstract methods?
+  .NET doesn’t support multiple inheritances with classes. We have to use interface to develop abstraction for supporting multiple inheritances. If we define an abstract class in place of an interface, a service provider cannot implement multiple specifications so that the service provider cannot have multiple businesses.
+-> By using the keyword interface we can declare an interface.
+-> By default, the members of an interface are public and abstract. An interface can contain
+   1) Abstract methods
+   2) Properties
+   3) Indexes
+   4) Events
+   but not contains - non-abstract functions, constructors, data fields and destructors.
+-> Interface contains private non-abstract methods.
+-> Interface cannot implement an abstract class. But Abstract class implements interface.
+-> A interface cannot be declared with sealed. It will cause compilation error.
+-> Is more than one interface are allowed to implement a class?
+   Yes, a class can implement multiple interfaces; this is an effective way to achieve multiple inheritances in .NET. But a class can extend only one superclass.
+-> Is it necessary to implement all interface methods?
+   It is not necessary for a class that implements an interface to implement all its methods, but in this case, the class must be declared as abstract.
+-> How interface is different from a class in C#?
+   1) We cannot instantiate an interface.
+   2) An interface does not contain any constructor or data fields or destructor, etc.
+   3) All of the methods of an interface are abstract and public by default.
+   4) An interface is not extended by a class; it is implemented by a class.
+   5) An interface can extend multiple interfaces.
+-> What are the similarities between the interface and abstract class in C#?
+   1) Both interface and the abstract class cannot be instantiated means we cannot create the object.
+   2) But we can create a reference variable for both interface and abstract class.
+   3) The subclass should implement all abstract methods.
+   4) Both cannot be declared as sealed.
+    
