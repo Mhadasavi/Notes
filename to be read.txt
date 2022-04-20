@@ -1,0 +1,8 @@
+indexers
+override keyword
+partial
+extern
+partial
+struct 
+enum
+delegates
