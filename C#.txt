@@ -87,4 +87,14 @@ Basics are written on hard copy. We are starting from Inheritance here.
    2) But we can create a reference variable for both interface and abstract class.
    3) The subclass should implement all abstract methods.
    4) Both cannot be declared as sealed.
-    
+
+
+Partial Method
+- A partial class or a struct can contain partial methods. A partial method is created using the same partial keyword.
+- Implementation of partial method is optional. If we don't provide the implementation, the compiler removes the signature and all calls to the method.
+- The implementation can be provided in the same physical file or in another physical file that contains the partial class.
+- Partial methods in C# are private by default and it is a compile-time error to include any access modifiers, including private.
+- It is a compile-time error to include declaration and implementation at the same time for a partial method.
+- A partial method return type must be void. Including any other return type is a compile-time error.
+- A partial method must be declared within a partial class or partial struct. A non-partial class or struct cannot include partial methods. 
+- A partial method can be implemented only once. Trying to implement a partial method more than once raises a compile-time error
