@@ -1,0 +1,518 @@
+ *class is a blue print which represent a group of objects which shares some common properties and behaviours. ex-consider a class of cars.There may be many cars with different names but all of them will share same properties like all of them brakes, speed limit, milage range etc.
+ in java
+* class would be final, public or abstract but not private or protected till its a inner class.why?
+  A top-level class as private would be completely useless because nothing would have access to it. If a top level class is declared as private the compiler will complain that the "modifier private is not allowed here".The answer why protected class will not be accessed by JVM is that, since protected fields are accessible within same package or to diffrent package through inheritance only and JVM is not written in a way so that it will inherit will class.
+* by default, a class is default
+* default class member function can't be use outside the package whereas a public class has the ability.
+* int i=0 is the instance variable which is seperate copy of it.i.e., different object has same value .i++
+class obj=new obj(); //i=1
+class obj2=new obj(); //i=1
+* class variable is declared with static int i. It is shared among all object in a class.
+* static block get always call first in a class before main method.
+* we use static method or static variable if we not want to use instantiation.
+
+*public static void main(String...args) meaning???
+Public : is an Access Modifier, which defines who can access this Method. Public means that this Method will be accessible by any Class(If other Classes are able to access this Class.).
+Static : is a keyword which identifies the class related thing. This means the given Method or variable is not instance related but Class related. It can be accessed without creating the instance of a Class.
+Void : is used to define the Return Type of the Method. It defines what the method can return. Void means the Method will not return any value.
+main: is the name of the Method. This Method name is searched by JVM as a starting point for an application with a particular signature only.
+String args[] : is the parameter to the main Method.
+
+*There are four types of Java access modifiers:
+- Private: The access level of a private modifier is only within the class. It cannot be accessed from outside the class.
+- Default: The access level of a default modifier is only within the package. It cannot be accessed from outside the package. If you do not specify any   access level, it will be the default.
+- Protected: The access level of a protected modifier is within the package and outside the package through child class. If you do not make the child class,   it cannot be accessed from outside the package.
+- Public: The access level of a public modifier is everywhere. It can be accessed from within the class, outside the class, within the package and outside   the package.
+
+*System is a class in the java.lang package.
+out is a static member of the System class, and is an instance of java.io.PrintStream.
+println is a method of java.io.PrintStream. This method is overloaded to print message to output destination, which is typically a console or file. 
+
+Object is a basic unit of object oriented programming.
+*An object has a state and behaviour and identity.
+State is represented by attributes or variables.Behavior is represented by methods and identity is used to identify each object uniquely.
+
+*There are four different ways to create objects in java:
+A. Using new keyword
+This is the most common way to create an object in java. Almost 99% of objects are created in this way.
+MyObject object = new MyObject();
+
+B. Using Class.forName()
+If we know the name of the class & if it has a public default constructor we can create an object in this way.
+c1 obj1=(c1)Class.forName("package.c1").newInstance();
+or
+MyObject object = (MyObject) Class.forName("subin.rnd.MyObject").newInstance();
+
+C. Using clone()
+The clone() can be used to create a copy of an existing object.
+A obj1=new A();
+A obj2=(A)obj1.clone();
+or
+MyObject anotherObject = new MyObject();
+MyObject object = (MyObject) anotherObject.clone();
+
+D. Using object deserialization
+Object deserialization is nothing but creating an object from its serialized form.
+ObjectInputStream inStream = new ObjectInputStream(anInputStream );
+MyObject object = (MyObject) inStream.readObject();
+
+Advantage of cloning -clone() is the fastest way to copy array.
+Disadvanatge of cloning-clone() supports only shallowing copy but we will need to override it if we need deep cloning.
+
+*OOPs is a paradigm to design a program using classes and objects.It simplifies the software developement and maintenance by providing some concepts:Object,Class,Encapsulation,Inheritance,Polymorphism,Abstraction.
+
+*Encapsulation
+It is a process of wrapping code(methods) and data(variables) together into a single unit.We can make a class encapsulated by making all the data members of the class private.for example, a capsule which is mixed of several medicines.Ex-Java beans.
+As per the OO Principles, one should have properties as private and changes must be allowed through the methods only. This rule is for enforcing the guarranty that there will be no accidental change of property. If we make properties as public then others can directly change  it and by using getters setters, we can have primitive data validations with it.
+Getter and setter are two methods provides control over data.It is used to access the private instance variable.
+Getters and setters in Java are methods that let us read and write the value of an instance variable of an object.And this is the way we can set and get values rather than directly exposing fields of a class.
+Along with that, getters setters can also be used for purpose of say reflection, serialization, mock objects, with Hibernate etc in Java. 
+Advantages-control over data,data hiding,fast and easy to create encapsulated class in ide and easy to test.
+*this keyword is a reference variable that represent current instance.It use in encapsulation i.e., for access private variable whose name is same as of local variable. It is also used to call current class constructor. We can pass this as an argument in method & constructor. this can be also used to return current class constructor.	
+java static import faciliate the programmer to access any static members of a class directly.There is no need to qualify it by the class name.and this is the difference between static import amd import.
+Package is a group of similar types of classes,interfaces and sub-packages.Two types-Built-in(lang,awt,net,io,util,sql,javax,swing) and User-defined.
+Advantage-
+It categorize classes and interfaces so that they can be easily maintained.
+It provide access protection.
+It removes naming collision.
+We can access package from another package using following-
+import package.*; import package.classname; fully qualified name ex- package a; class d1{} package b; class d2(a.d1 obj=new a.d1();) It is used when two packages has same class such as java.util and java.sql has date class.
+Importing package does not import subpackage.
+Two ways to load class files or jar files-temporary(by setting classpath) & permanent(creating jar file with all classes or interfaces and copy into jre/lib/ext folder).
+Package class provides methods to get the information about the specification and implementation of a package.methods are getName(),getImplementationTitle()
+Private data member can't be access outside the class.
+Private constructor instance not created in other class. It is used in Singleton class design pattern.
+
+*class variable-inside class and declare with static keyword.
+ instance variable-inside class but outside function.
+ local variable-inside function
+
+*Object knows variable and object does method.
+
+*The super keyword is similar to this keyword. Following are the scenarios where the super keyword is used.ss
+super can be used to refer immediate parent class instance variable.
+super can be used to invoke immediate parent class method.
+super() can be used to invoke immediate parent class constructor.
+
+*Polymophism means many forms.Ex-A person at the same time is a father, a husband,an employee.So the same person posses different behaviour in different situations.This is called polymorphism.It allows us to perform a single action in different ways.
+-Polymorphism is of two types:
+1.Compile time polymorphism  (Method Overloading,Static binding, Early binding)
+2.Runtime polymorphism  (Method Overriding , Dynamic binding, Late binding)
+compile time polymorphism is also known as static polymorphism and can be achieved by function overloading or operator overloading.In java only '+' operator can be overloaded.
+Runtime polymorphism is also known as dynamic method dispatch.It is a process in which method call to the overridden method is resolved at runtime and can be resolved by method overriding.
+In this case the method in parent class is called overridden method and the method in child class is called overriding method.
+-Advantage of method overriding
+This is helpful when a class has several child classes, so if a child class needs to use the parent class method, it can use it and the other classes that want to have different implementation can use overriding feature to make changes without touching the parent class code.
+Connecting a method call to the method body is known as binding.
+-There are two types of binding
+    static binding (also known as early binding). ex- create a class, method and object.
+    dynamic binding (also known as late binding).
+When type of the object is determined at compiled time(by the compiler), it is known as static binding.
+If there is any private, final or static method in a class, there is static binding.
+When type of the object is determined at run-time, it is known as dynamic binding.
+Static binding in Java occurs during compile time while dynamic binding occurs during runtime. Static binding uses type(Class) information for binding while dynamic binding uses instance of class(Object) to resolve calling of method at run-time. Overloaded methods are bonded using static binding while overridden methods are bonded using dynamic binding at runtime.
+In dynamic method dispatch the object can call the overriding methods of child class and all the non-overridden methods of base class but it cannot call the methods which are newly declared in the child class. 
+*Dynamic method dispatch example
+public abstract class Animal {
+    public abstract void move();
+}
+public class Cat extends Animal {
+    @Override public void move() {
+        moveWithLegs();
+    }
+    public void moveWithLegs() {
+        // Implementation
+    }
+}
+public class Fish extends Animal {
+    @Override public void move() {
+        moveBySwimming();
+    }
+    public void moveBySwimming() {
+        // Implementation
+    }
+}
+
+Animal animal = new Cat();
+animal.move(); // Okay
+animal.moveWithLegs(); // Not okay
+((Cat) animal).moveWithLegs(); // Okay
+((Fish) animal).moveWithLegs(); // ClassCastException exception
+
+if the Access Modifier of parent class method is public then the overriding method (child class method ) cannot have private, protected and default Access modifier,because all of these three access modifiers are more restrictive than public.
+
+- When reference variable of parent class is determined by object of child class, it is known as upcasting.
+  a obj = new b();// example of dynamic binding
+- covariant return type-ex= consider we have class a and b having same methods msg with different return type but it is overriding.This is known as   covariant return type.
+- Instance Initializer block is used to initialize the instance data members.We can create a block before main method and can perform required operation in   that block.It invoked at the time of creating an object of class.The compiler copy the instance initializer block to the constructor after super   statement.so firstly constructor invoked then this block. 
+- instanceof operator is used to check whether the object is an instance of the specified type(class,subclass or interface). It is also known as type   comparison operator.When Subclass type refers to the object of Parent class, it is known as downcasting. If we perform it directly, compiler gives   Compilation error. If you perform it by typecasting, ClassCastException is thrown at runtime. But if we use instanceof operator, downcasting is possible.
+- Upcasting is casting to a supertype, while downcasting is casting to a subtype. Upcasting is always allowed, but downcasting involves a type check and can   throw a ClassCastException.
+  In your case, a cast from a Dog to an Animal is an upcast, because a Dog is-a Animal. In general, you can upcast whenever there is an is-a relationship   between two classes.
+  Downcasting would be something like this:
+  Animal animal = new Dog();
+  Dog castedDog = (Dog) animal;
+  Basically what you're doing is telling the compiler that you know what the runtime type of the object really is. The compiler will allow the conversion,   but will still insert a runtime sanity check to make sure that the conversion makes sense. In this case, the cast is possible because at runtime animal is   actually a Dog even though the static type of animal is Animal.
+  However, if you were to do this:
+  Animal animal = new Animal();
+  Dog notADog = (Dog) animal;
+  You'd get a ClassCastException. The reason why is because animal's runtime type is Animal, and so when you tell the runtime to perform the cast it sees   that animal isn't really a Dog and so throws a ClassCastException.
+  To call a superclass's method you can do super.method() or by performing the upcast.
+  To call a subclass's method you have to do a downcast. As shown above, you normally risk a ClassCastException by doing this; however, you can use the        instanceof operator to check the runtime type of the object before performing the cast, which allows you to prevent ClassCastExceptions:
+  Animal animal = getAnimal(); // Maybe a Dog? Maybe a Cat? Maybe an Animal?
+  if (animal instanceof Dog) {
+    // Guaranteed to succeed, barring classloader shenanigans
+    Dog castedDog = (Dog) animal;
+  }
+
+*Inheritance is a mechanism in which one object aquires all the properties and behaviors of a parent object.
+It is used for method overriding and code reusability.Inheritance represents IS-A relationship or parent child relationship.We can inherit class using extends keyword.
+ex-class employee{}class programmer extends employee{} here,programmer IS-A employee.
+There are 3 types of inheritance in java named, single, multilevel and hierarchical. To reduce the complexity and simplify the language,multiple inheritance is not supported in java but can be achieved through interfaces.
+Aggregation-If a class have an entity reference, it is known as aggregation.Aggregation represents HAS-A relationship.ex-class a{int data;b b;}class b{}
+In aggregation, we do not have to inherit class.
+Code reuse is best achieved by aggregation while inheritance should be used only if relationship IS-A is maintained throughout the lifetime of object involved. 
+*Final keyword can be used to restrict the user.Final-
+variable-only one time initialize
+method-only one method create and that method can't be overridden.
+class-child class cannot be extended final parent class.
+types-blank final variable i.e., not initialize at the time of declaration and can be initialized only in constructor.Blank final variables are used to create immutable objects (objects whose members can’t be changed once initialized).If we have more than one constructors or overloaded constructor in class, then blank final variable must be initialized in all of them. However constructor chaining can be used to initialize the blank final variable.
+static blank final variable in static block.
+constructor cannot be declare final because it can't be overriden.
+data members cannot be overriden only members do.
+
+*Class is a data type
+primitive variable is = int a
+reference variable(object) is = A obj whereas A is the name of the class and obj is the reference variable.
+Local variable goes into the stack memory
+In A obj=new A(reference object), obj create in stack memory as a variable and store the address of object.
+new A().show(), new A() is the anonymous object which creates in heap memory using new keyword. 
+A object not having any name is called anonymous object.
+anonymous object use only one time and eligible for garbage collection whereas reference variable not eligible for garbage collection.
+If we use object for single time, anonymous object is best. And for multiple time, reference object is best.
+
+*Abstraction is a process of hiding the implementation and showing only the functionality to the user.ex-we send sms where we type msg and send the msg,we don't know the internal processing about the message delivery.There are 2 ways to achieve abstraction- abstract class(0-100%) and interface(100%).
+A class which declared abstract is known as abstract class and having abstract and non-abstract methods.It needs to be extended and its method implemented.It cannot be instantiated.It can have final method,static method and constructor also.
+Any method which only declares and not be define is known as Abstract method.
+eg= abstract void method();
+ A class with abstract method is known as Abstract Class.
+eg= abstract class{}
+abstract class cannot be instantiate.
+
+*Interface is a blueprint of a class.It is a mechanism to achieve abstraction and multiple inheritance and loose coupling in java.It also represents IS-A relationship.
+Interface is create using keyword interface like that of class.We can have default,static,public, abstract methods in interface.All the fields in interface are public,static and final by default.
+eg- interface a{}
+interface provide security facility because we cannot instantiate interface but we can make reference to class for using interface method not class method.
+eg- interface a{ void method c();} class b implements a{ void method c(){} a obj=new b();}
+interface can be implements not extends.
+methods can be declare only not define in interface.
+Interface extends interface.Interface support multiple inheritance because there is no ambiguity because its implementation is provided by the implementation class. 
+Interface are of 3 types-
+Marker interface-no method(serialization, remote and etc)(use to give the permission in class)
+Single Abstract method(SAM)-only one method [in java 8,it is also called functional interface]
+Normal interface-it is normal
+Functional interface has a special feature that is we do not create a class for define a method.
+eg- a obj=()-> System.out.println("this is the define method of interface");
+abstract class vs interface
+1.abs cls decalred with abstract keyword while interface is declared with interface.
+2.abs cls can be extended using extended keyword while interface can be implemented using implements keyword.
+3.abs clas doesn't support multiple inheritance while interface support multiple inheritance.
+4.abs class doesn't have default method but interface have.
+5.abs class can provide the implementation of interface but interface can't provide the implementation. 
+
+*In java, array is an object.For array object, a proxy class is created whose name can be obtained by getClass().getName() on the object.
+Object is the parent class of all the classes.It is beneficial if you want to refer any object whose type you don't know.The object class provides some common behaviors to all the objects such as object can be comapared, object can be cloned, object can be notified etc.
+some of the methods of objects class are-hashcode(),equals(),toString(),wait(),notify(),notifyall(),finalize().
+In Call by value, we call a method passing a value.
+In case of call by value original value is not changed.
+java is not use call by reference because in call by reference we need to pass the address or reference and address is store in pointers and java does not support pointer because pointers breaks the security.
+But the difficult thing is that java passes object as references and those references are pass by value.
+
+we create document api in java with the help of javadoc tool.
+command line argument is an argument that passed at the time of running the java program.
+
+*BufferedReader class is used to take input of a string.
+For using BufferedReader, we have to import the BufferedReader class first then create its object like
+InputStreamReader obj2 =new InputStreamReader(System.in);
+BufferedReader obj=new BufferedReader(obj2);
+in the above, we create bufferedreader class object and pass inputstreamreader class(because it extends abstract reader class as we have to use reader class object) object in BR's argument because it is important.
+*BufferedReader vs Scanner Class
+1.Scanner is more powerful than BufferedReader.Scanner parse the user input and read primitive data types.While BufferedReader can only read String.
+2.BufferedReader is significantly large Buffer(8KB) than scanner(1KB), which means if you are reading long String from a file, you should use BufferedReader but for short input and other than string,you can use Scanner class.
+3.BufferedReader is older than scanner.It present in java from JDK 1.1 but scanner is introduced in JDK 1.5.
+4.BufferedReader class is synchronized 	while scanner is not.This means, you cannot share scanner between threads but can share bufferedReader object.
+In Scanner class if we call nextLine() method after any one of the seven nextXXX() method then the nextLine() doesn’t not read values from console and cursor will not come into console it will skip that step. The nextXXX() methods are nextInt(), nextFloat(), nextByte(), nextShort(), nextDouble(), nextLong(), next().
+*In BufferReader class there is no such type of problem. This problem occurs only for Scanner class, due to nextXXX() methods ignore newline character and nextLine() only reads till first newline character. If we use one more call of nextLine() method between nextXXX() and nextLine(), then this problem will not occur because nextLine() will consume the newline character.
+
+*System.in.read is another way to take a integer input and convert a integer into character through casting.
+
+*Wrapper ClasseS - Wrapper classes are used to convert any data type into an object.
+-In development, we come across situations where we need to use objects instead of primitive data types. In order to achieve this, Java provides wrapper classes.
+-All the wrapper classes (Boolean,Character,Integer, Long, Byte, Double, Float and Short) are subclasses of the abstract class Number.
+-The object of the wrapper class contains or wraps its respective primitive data type. Converting primitive data types into object is called boxing, and this is taken   care by the compiler. 
+-And the Wrapper object will be converted back to a primitive data type, and this process is called unboxing. 
+-The Number class is part of the java.lang package.
+-String is not a wrapper class, simply because there is no parallel primitive type that it wraps.
+-There are Eight wrapper classes.
+eg=Integer a=new Integer(5);//boxing
+   Integer a=i;//Autoboxing and similarly unboxing and autounboxing(int j=a.intValue();) 
+Wrapper classes use in framework,collection etc while primitive data types use for simple task (loops) for getting speed over features.
+ 
+*String split method is used to break the string.
+eg-String str="a,b,c";
+String val[]=str.split(",");
+
+* Enum (Enumeration) is a type that contains fixed set of constant values. We used enum  keyword to declare enums. ex- enum Size{SMALL, LARGE}.
+  When we create an enum class, the compiler will create instances (objects) of each enum constants. Also, all enum constant is always public static final     by default.
+  An enum class can contains methods and fields just like regular classes.
+  An enum class may include a constructor like a regular class. These enum constructors are either -
+   private - accessible within the class
+   package-private - accessible within the package
+
+	
+
+*toString method is the predefine method in object class.
+By default every class extends or inherits object class.
+When we print object,it will print class name along with hash code,to replace this hashcode we override toString method and return the required value.
+
+*String is object in java which represent sequence of characters.String implements Serializable,Comparable and CharSequence Interfaces(used to represent the sequence of characters).Package is java.util.String.
+String can be create by using string literal and new keyword.Jvm check string constant pool(memory where string stores) whenever we create string using string literal.If the string already exists in the pool, then it returns reference to the pool instance(in this case new string object is not create).String literal are used to make java more memory efficient(new object are not created if its exists).By using new keyword, string object stores in heap memory  
+string is immutable(unchnaged or unable to change) because whenever we change the string, a new instance is created.Because java uses the concept of string literal.Suppose there are 5 reference variables,all referes to one object "sachin".If one reference variable changes the value of the object, it will be affected to all the reference variables. That is why string objects are immutable in java.
+If we create two string point to same value or object and change one of the string value,new value store as a new address other than change or modify the previous value.It is also called flyweight pattern(reuse the object).
+ex- String s1="one";String s2="two";s1="three";
+it is used to increase the performance and reduce time.
+2 methods to achieve this is stringbuffer and stringbuilder.
+String can be compare by three ways:1)By equals method-It checks the original content of the string. 2)By ==compare by operator-It compares reference only not values.
+3)By compareTo()-it compares values alpahbetically and return 0 if both are equal, 1 if s1>s2 or -1 if s1<s2.
+concatenation- String s=50+30+"Sachin"+40+40;     System.out.println(s);//80Sachin4040
+concat() method is better than + operator because it creates new object only when the string length is greater than 0,so it uses less memory.while + operator creates new string irrespective of length of string so it takes more memory.
+string valueOf() method converts types (int or any other) into string.ex-int a=10;String s=String.valueOf(a);
+StringBuffer class is used to create mutable(modifiable) string.It is same as string class except it is mutable i.e., it can changed.Default capacity is 16.It is synchronized.
+Note: Java StringBuffer class is thread-safe i.e. multiple threads cannot access it simultaneously. So it is safe and will result in an order.
+StringBuilder is same as stringBuffer class except that it is non-synchronized
+-string vs stringBuffer
+string is immutable while stringBuffer is mutable.
+String consumes more memory when concat while stringBuffer cannot.
+String overrides equals method while stringbuffer can't override.
+-stringbuffer vs stringBuilder
+stringBuffer is synchronized while stringBuilder is non-synchronized.
+stringBuffer is less efficient than stringBuilder while stringBuilder is more effecient than stringBuffer.
+                    All the wrapper classes are immutable.We can create immutable classes using final data members,final class and there is no setter method.
+The java string intern() method returns the interned string. It returns the canonical representation of string.
+It can be used to return string from memory, if it is created by new keyword. It creates exact copy of heap string object in string constant pool.
+conversion-
+string to int(Integer.parseInt(s);), string to Integer(Integer.valueOf(s);)
+int to String(String.valueOf(i);),(Integer.toString(i);),(String.format("%d",i);)
+
+*Exceptions is used to handle errors in java.
+Throwable class consist of two subclasses that is Exception and Error class.
+there are two types of exceptions that is checked and unchecked exceptions.
+checked exception are those which we know ex-ioexception or arrayIndexOutofBoundsException exception whereas unchecked exceptions are those which occurs during runtime.
+finally block execute whether your code will execute or not.Java finally block is a block that is used to execute important code such as closing connection, stream etc.Finally block in java can be used to put "cleanup" code such as closing a file, closing connection etc. For each try block there can be zero or more catch blocks, but only one finally block. The finally block will not be executed if program exits(either by calling System.exit() or by causing a fatal error that causes the process to abort).Resources are such as files and databases connections.A resource is an object that must be close after the program is finished with it.
+When  a exception occurs in the try block and an exception occurs while closing the resources, then the resulting exception will be suppressed exception.Throws is used to handle the exception.It means someone handle the error.
+Throw in java is used to explicitly throw an exception.We can either throw checked or unchecked exceptions in java by throw keyword.The throw keyword is mainly used to throw custom exceptions.
+ex- throw new custom_exception_name("optional argument"); where customexceptionname is the constructor and that class extends exception class.
+Java finally block is always executed whether exception is handled or not.
+ Propagation is a process in which the exception is being dropped from to the top to the bottom of the stack. If not caught once, the exception again drops down to the previous method and so on until it gets caught or until it reach the very bottom of the call stack. This is called exception propagation and this happens in case of Unchecked Exceptions.For propagating checked exceptions, method must throw exception by using throws keyword.
+1) Rule: If the superclass method does not declare an exception, subclass overridden method cannot declare the checked exception.
+2) Rule: If the superclass method does not declare an exception, subclass overridden method cannot declare the checked exception but can declare unchecked exception.
+3) Rule: If the superclass method declares an exception, subclass overridden method can declare same, subclass exception or no exception but cannot declare parent exception.
+
+
+*Object Clone
+Cloning is a process of creating an exact copy of an existing object in the memory.The objects which implement Cloneable interface are only eligible for cloning process.The default version of clone() method creates the shallow copy of an object. To create the deep copy of an object, you have to override the clone() method. 
+Shallow copy- Second object copy's the reference of first object.It copy the address of first object.Its problem is that if we changes second object value then first object value automatically changed.
+Deep copy- Second object copy's all the data members, allocate memory at a different location for second object and then assigned the members to second(own) to achieve deep copy.For more-  
+http://javaconceptoftheday.com/difference-between-shallow-copy-vs-deep-copy-in-java/
+
+*Java I/O
+A stream is a sequence of data or flow of data.
+program use inputstream to read data from a source and output stream to write data to a destination (sink), one item at time.
+Java support two types of streams: character and byte stream.Input and output of character is handled by readers and writers.Input and output of byte data is handled by input streams and output streams
+1.FileOutputStream is used to write data to a file.It either write ascii value or byte data.FileInputStream is used to read single data or byte of data using while loop.
+2.BufferedOutputStream is used for buffering an output stream.It adds more efficiency than to write data directly into a stream.so it makes the performance fast.
+3.SequenceInputStream class is used for read multiple streams.It reads data sequentially.For more than two streams, we can use enumeration here for read data.
+4.ByteArrayOutputStream is used to written data into multiple files.In this stream, the data is written into a byte array which can be written to multiples streams later.ByteArrayInputStream is used to read byte array as input stream.The data is read from  a byte array.
+5.DataOutputStream is used to write primitive data types to the output stream in a machine independent way.
+
+*Serialization 
+Object serialization, where an object can be represented as a sequence of bytes that includes the object's data as well as information about the object's type and the types of data in the object.
+It is a process of converting an object into a sequence of bytes which can be persisted to a disk or database or can be sent through streams.The reverse process of creating object from sequence of bytes is called deserialization.ObjectOuputStream and ObjectInputStream are high-level streams that contains the methods for serializing and deserializing an object.
+transient variables are never serialized in java.It marks a member variable not to be serialized when it is persisted to streams of bytes. When an object is transferred through the network, the object needs to be 'serialized'. Serialization converts the object state to serial bytes. Those bytes are sent over the network and the object is recreated from those bytes. Member variables marked by the java transient keyword are not transferred, they are lost intentionally.
+Notice that for a class to be serialized successfully, two conditions must be met -
+The class must implement the java.io.Serializable interface.
+All of the fields in the class must be serializable. If a field is not serializable, it must be marked transient.
+For serializing the object, we call the writeObject() method of ObjectOutputStream, and for deserialization we call the readObject() method of ObjectInputStream class.
+If there is any static data member in a class, it will not be serialized because static is the part of class not object.
+Rule: In case of array or collection, all the objects of array or collection must be serializable. If any object is not serializable, serialization will be failed.
+The Externalizable interface provides the facility of writing the state of an object into a byte stream in compress format. It is not a marker interface.
+The Externalizable interface provides two methods:
+public void writeExternal(ObjectOutput out) throws IOException
+public void readExternal(ObjectInput in) throws IOException
+The serialization process at runtime associates an id with each Serializable class which is known as SerialVersionUID. It is used to verify the sender and receiver of the serialized object. The sender and receiver must be the same. To verify it, SerialVersionUID is used. The sender and receiver must have the same SerialVersionUID, otherwise, InvalidClassException will be thrown when you deserialize the object. We can also declare our own SerialVersionUID in the Serializable class. To do so, you need to create a field SerialVersionUID and assign a value to it. It must be of the long type with static and final. It is suggested to explicitly declare the serialVersionUID field in the class and have it private also. 
+
+*In java, every object is either a primitive type or reference. All the classes, enums, arrays are reference types and inherit from java.lang.Object. Primitive types are – boolean, byte, short, int, long, char, float, and double.
+
+*Reflection API
+Java Reflection is a process of examining or modifying the run time behaviour of a class,methods or interfaces at run-time.The java.lang.Class class provide many methods that can be used to get metadata,examine and change the runtime behaviour of a class.The java.lang and java.lang.reflect packages provide classes for java reflection.It is mainly used in IDE,debugger and test tools etc.
+There are 2 ways to get the object of Class class- 
+1.forName() method of Class class.
+2.getClass() method of Object class.
+3.The .class syntax
+ forName() is used to load class dynamically(may store all properties of given class),returns the instance of class Class,used if you know the full qualified name of the class.
+ getClass() is used to returns the instance of class Class.It should be used if you know the type.Moreover it can be used with primitives.
+ .class syntax is used when a type is available but there is no instance then it is possible to obtain a Class by appending ".class" to the name of the type.It can be used for primitive data type also.
+
+*Threading
+Thread is a sub-process,a small unit of processing.Multithreading is a process of executing multiple threads simultaneously. 
+Advantage of multithreading-
+1.It doesn't block the user because threads are independent and we can perform multiple operations at the same time.
+2.Saves time because we can perform many operations together.
+3.Threads are independent so it doesn't affect other threads if an exception occurs in that single thread.
+Multithreading and multiprocessing both are used to achieve multitasking.Multitasking is a process of executing multiple task simultaneously.We use multitasking to utilize the CPU.Multitasking can be achieved in two ways:
+1.Process based multitasking(Multiprocessing)-Each process allocates seperate memory area, process is heavyweight, cost of communication between the process is high.Switching from one process to another require some time for saving and loading registers,memory maps,updating list etc.
+2.Thread based multitasking(Multitasking)-Each thread share same address space, thread is lightweight, cost of communication between the thread is low.
+Note-ThreadScheduler in java is part of JVM which decides which thread should run.
+     Atleast one process is required for each thread.At a time one thread executed only.The thread scheduler mainly uses preemptive or time slicing scheduling to schedule the threads.
+Preemptive scheduling-The hightest priority task should be executed until it enters waiting state or  dead state or any other higher priority task comes into existence.
+Time slicing- its like aatma. a task executes for a predefined slice of time and then reenters into pool of ready tasks.
+Thread can be create by two ways:
+1) Extends Thread class, create run method and invoke as [a.start();].
+2) Implements Runnable interface,create instance of Thread Class and invoke as [ThreadClassInstance.start();]
+Thread.Sleep() method is used to sleep the current thread for a time(milliseconds).Thread cannot be start twice if start, it thrown illegalThreadStateException .
+Each thread run in seprate stack.Invoking the run() from main thread, the run() method goes into the current call stack instead of beginning of a new call stack.It treated as normal object not thread object. 
+Join() method causes the currently running thread to stop executing until the thread it joins with completes its task.setName(String name),getName() and getId() returns name and id of current thread and we can also set the name of the thread.The currentThread() method returns a reference of currently executing thread.
+Each thread have a priority which represented by a number between 1 and 10.There are 3 types of priority in java such as NORM_PRIORITY,MIN AND MAX_PRIORITY.We can set priority by using [setPriority(Thread.MAX_PRIORITY);] 
+Daemon Thread is a service provider thread.It provide service to user thread for background support tasking.It depends on user thread i.e., if there are no user thread then there will be not any daemon thread.It is low priority thread.Methods are setDaemon and isDaemon.There are many daemon thread running automatically eg.gc,finalizer etc.If you want to make a user thread as daemon it must not be started otherwise it will throw illegalThreadStateException.
+Java Thread Pool is a group of working threads that are waiting for the jobs and reuse many times.In case of thread pool,a group of fixed size threads are created, a thread pulled out from thread pool, assigned a job by service provider.After completion of job,thread contained in thread pool again.The advantage is (Better Performance) it saves times because there is no need to create new thread.It is used in JSP and Servlet where container create a thread pool to process the request.
+ThreadGroup in java provides a convenient way to group multiple threads in a single object.In such way,we can resume,suspend or interrupt group of threads by a single method call.Package is java.lang.ThreadGroup class.
+The Shutdown Hook can be used to perform cleanup resource or save the state when JVM shut down normally or abruptly.Performing cleanup resources means closing log file,sending some alerts or something else.So if you want to execute some code before JVM shut down, use shutdown hook.JVM shut down when user press ctrl+c on cmd,user log off,System.exit(int) method is invoked or user shutdown etc.The addShutDownHook(new Thread) method of Runtime class is used to register the thread with the virtual machine. The object of runtime class can be obtained calling the static factory method getRuntime. Ex- Runtime r=Runtime.getRuntime();       Factory method returns the instance of a class. The shutdown sequence can be stopped by invoking the halt(int) method of Runtime class.
+-Garbage means unreferenced objects.Garbage collection is a way to destroy the unused objects.Java performs automatically so java provide better memory management.
+Advantages are - it makes java memory efficient because GC removes the unreferenced objects from heap memory.It is automatically done by garbage collector (a part of JVM).
+Object can be unreferenced by nulling the reference,by assign reference to another and by annonymous object etc.
+finalize() is invoked each time before the object is garbage collected.This method is used to perform cleanup processing.This method is defined in object class as:protected void finalize(){}.
+GC collects only those objects that are created with new keyword only.So if any oject created without new keyword,use finalize method to perform cleanup processing(destroying remaining objects).
+gc() method is used to invoke the garbage collector to perform cleanup processing.This method is found in Runtime and System classes : public static void gc(){}.
+Garbage collection is performed by a deamon thread called Garbage Collector(GC).This thread calls the finalize method before obect is garbage collected.
+-Java Runtime Class provides methods to execute a process, invoke GC, get total and free memory etc.There is only one instance of java.lang.Runtime class is available for one java application. Runtime.getRuntime() method returns the singleton instances of Runtime Class.[Ex-exec,freeMemory,totalMemory,exit(0),availableProcessors etc]. 
+yield is a static method. It doesn't say which other thread will get the CPU. It is possible for the same thread to get back the CPU and start its execution again.sleep() causes the thread to definitely stop executing for a given amount of time; if no other thread or process needs to be run, the CPU will be idle (and probably enter a power saving mode).
+yield() basically means that the thread is not doing anything particularly important and if any other threads or processes need to be run, they should. Otherwise, the current thread will continue to run. 
+
+*Synchronization in java
+Synchronization in java is the capability to control the access of multiple threads to any shared resource.Java Synchronization in java is the best option where we want to allow only one thread to access the shared resource.(sequence m work hoga)
+Synchronization in java is used to prevent thread interference and consistency problem.
+There are two types of Synchronization i.e., Process and Thread Synchronization.
+There are two types of thread synchronization i.e.,Mutual Exclusive and inter-thread communication.
+Mutual Exclusive helps keeps thread from interfering with one another while sharing data.This can be done by thee ways:- 1)Synchronization method 2)Synchronization block 3)static Synchronization.
+Concept of lock in java - Synchronization is built around an internal entity known as lock or monitor.Every object has an lock associated with it.By convention,a thread that needs consistent access to object's fields has to acquire the object's lock before accessing them, and then release the lock when it's done with them.Package name- java.util.concurrent.locks .
+Any method which declared with synchronized keyword, is known as synchronized method.It is used to lock an object for any shared resources.When a thread invokes the synchronized method, it  automatically acquires the lock for that object and releases it when the thread completes its task.
+Synchronized block can be used to perform synchronization on any specific resource or method.Suppose you have to 50 lines of codes and you want to synchronize only 5 lines, you can use synchronize block only.Important points - Synchronized block is used to lock an object for shared resource.Scope of synchronized block is smaller than the method.
+In any static method with synchronized keyword, the lock will be on the class not on object.It is used to solve the problem of interference of multiple threads of multiple objects.
+ex-https://www.javatpoint.com/static-synchronization-example.
+DeadLock in java is a part of java multithreading. Deadlock can occur in a situation when a thread is waiting for an object lock, that is acquired by another thread and second thread is waiting for an object lock that is acquired by first thread.Since both thread are waiting for each other to release the lock, the condition is called deadlock.
+Inter-thread communication or Co-operation is all about allowing synchronized thread to communicate with each other.It is a mechanism in which a thread is paused running in its critical section and another thread is allowed to enter (or lock) in the same critical section to be executed.It is implemented by following methods of Object Class.
+1)wait() 2)notify() 3)notifyall()
+1) wait() method-causes current thread to release the lock and wait until another thread invokes the notify() method or the notifyall() method for this object,or a specified amount of time has elasped.The current thread must own this object's monitor, so it must be called from the synchronized method only otherwise it will throw exception.
+public final void wait()throws InterruptedException- waits until object is notified.
+public final void wait(long timeout)throws InterruptedException- waits for the specified amount of time.
+2)notify() method-Wakes up a single thread that is waiting on this object's monitor. If many threads are waiting on this object, one of them is chosen to be awakened. The choice is arbitrary and occurs at the discretion of implementation.
+public final void notify()
+3)notifyall() method=Wakes up all threads that are waiting on this object's monitor.
+public final void notifyAll()
+wait(),notify() and notifyAll() methods are defined in Object class because they are related to lock and object has a lock.
+Difference beween wait() and sleep()-https://www.javatpoint.com/inter-thread-communication-example
+The major difference is that wait() releases the lock or monitor while sleep() doesn't releases the lock or monitor while waiting. wait() is used for inter-thread communication while sleep() is used to introduce pause on execution, generally.
+
+
+*Collections
+Collections in java is a framework that provides an architecture to store and manipulate the group of objects.Data searching,sorting,insertion,manipulation,deletion etc can be performed by java Collections.
+Java Collection represents a single unit of objects i.e. a group.It include many interfaces and classes.
+Framework in java provides readymade architecture,represents set of classes and interface and it is optional.Collection framework represents a unified architecture for storing and manipulating group of objects.It has 1)Interfaces and its implementaions i.e. classes. 2)Algorithm
+Java ArrayList class uses a dynamic array for storing the elements. It inherits AbstarctList Class and implements List interface.It can contain duplicate elements,maintain insertion order,non-synchronized,mainpulation is slow and it allows random access because array works at the index basis.
+Java collection framework was non-generic before JDK 1.5. Since 1.5, it is generic.Java new generic collection allows you to have only one type of object in collection. Now it is type safe so typecasting is not required at run time.
+Ex-ArrayList al=new ArrayList();//creating old non-generic arraylist  
+ArrayList<String> al=new ArrayList<String>();//creating new generic arraylist  
+In generic collection, we specify the type in angular braces. Now ArrayList is forced to have only specified type of objects in it. If you try to add another type of object, it gives compile time error.
+There are two ways for traversing collection elements-1) By Iterator interface 2)By for-each loop 
+Iterators are used in Collection Framework in java to retreive elements one by one.There are 3 types of iterators -
+1)Enumeration-It is a interface used to get elements of legacy collection(Vector,Hashtable).It is the first iterator.
+2)Iterator-It is a universal iterator as we can apply it to any Collection Object.By using Iterator we can perform read and remove operations.
+3)ListIterator-It is only applicable only on List Collection implemented Classes like ArrayList and linkedList etc.It provides bi-directionanl iteration.
+Here "c" is any Collection object. itr is of
+// type Iterator interface and refers to "c"
+Iterator itr = c.iterator();
+ Java LinkedList class uses doubly linked list to store the elements.It inherits AbstractList Class and list and deque interface.It contain duplicate elements, maintain insertion order,non-synchronized,manipulation is fast as there is no need to shifting like ArrayList and it can be used as list,stack or queue.Doubly linked list means we can add or remove elements from both sides.We should use ArrayList for better store and accessing the data element while LinkedList for better manipulation data.
+List interface is the subinterface of Collection. It contains methods to insert and delete element in index basis.It is a factory of ListIterator interface.
+HashSet class is used to create a collection that use a hash table for storage.It inherits the AbstractSet Class and implements Set interface.HashSet store the elements by using a mechanism called Hashing.HashSet contains unique elements only(this is the difference b/w list and set).
+java TreeSet class perform same as hashset but it also maintain ascending order.But it implement comparable interface for insert user-defined object(ex-library example).java queue interface order the element in FIFO manner.PriorityQueue class provide the facility of using queue, but it does not orders the element in FIFO manner.Deque(double ended queue) inteface is a linear collection that supports element insertion and removal at both ends.ArrayDeque class provides the facility of using deque and resizable-array.Java Map interface contains values on the basis of key and value pair. Each key and value pair is known as an entry.Map contains only unique keys.Map is useful if you have to search,update or delete elements on the basis of key.
+Comparator<> interface order or sort the elements in collection by using the compare method which return 1 and -1.Comparable interface also perform same operation like of Comparator interface through compareTo() method.But there is a difference b/w them is comparable interface only provide single sorting sequence whereas comparator provide multiple sorting sequence.LinkedHashMap maintains insertion Order whereas HashMap and HashTable not.
+HashMap contains one null key and not maintain insertion order whereas treeMap cannot contains null key but null values and maintain ascending order.
+A hashTable is an array of list(bucket).It contains only unique key.It may have not any null key or null value.It is synchronized.
+EnumSet is a specialized set implementation for use with enum types.
+
+Java inner classes or nested class is a class which is declared inside the class or interface.It main use is to group classes and interface at one place so that it can be more readable and maintainable.It can access all the private and public data members and methods.It require less code to write.Inner class is a part of nested class.Non-static nested class are known as inner class.There are two types of nested class 1) Static nested class 2)Non-static nested class (Inner class).
+Non-static nested class are of 3 types- 1)Member inner class [create in class outside method] 2)Local inner class [create in class within a method ] 3)Anonymous Inner class [create for implement interface or extending class and name decided by the java compiler]
+The java compiler creates two class files in case of inner class. The class name of inner class is outer$inner.Instance of inner class is created inside the instance of outer class.Inner class access private member of outer class because it have the refrence of outer class.Anonymouse inner class can be used to override method of class or interface.It can be created using two ways: 1)Class(may be abstract or concrete). 2)Interface
+Ex-Person p=new Person(){void eat(){System.out.println("nice fruits");}};  
+1- A class is created but its name is decided by the compiler which extends the Person class and provides the implementation of the eat() method.
+2- An object of Anonymous class is created that is referred by p reference variable of Person type.
+Static inner class cannot access non-static data members and methods.
+Nested interface can be referenced from interface or class as it can't be accessed directly.It should be public if it is declared inside interface.Nested interface declare static implicitely.If we define a class inside the interface, java compiler creates a static nested class.
+
+*Java Adapter class provide the default implementations of listener interfaces.If you inherit the adapter class, you will not be forced to provide implementations of all the methods of listener interfaces.It found in three packages - awt.event,dnd, swing.event.
+
+*JDBC
+It is an API to connect and execute query with the database.It uses JDBC drivers to connect with database.
+JDBC drivers are of 4 types-
+1.JDBC-ODBC bridge driver 2.Native-API driver(partially driver) 3.Network Protocol driver(fully java driver) 4.Thin driver(fully java driver).
+There are 5 steps to connect any java application with the database-
+1.Register the class 2.Create the connection 3.Create statement 4.Executing queries 5.Close the connection.
+1.forName() is used to register the class.[Class.forName(oracle.jdbc.driver.OracleDriver);]
+2.getConnection() is used to establist the connection.[Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","password");]
+3.Statement st=con.createStatement();[st means object is responsible for executing the queries]
+4.ResultSet rs=st.executeQuery();
+5.con.close() is used to close the connection.
+DriverManager class acts as an interface between user and drivers.It maintains establishing a connection and registered by calling the method DriverManager.registerDriver().A connection interface is a factory of statement, preparedStatement, and DatabaseMetaData that is object of connection can be used to get the object of statement and databaseMetaData.It provide commit(),rollback() etc.
+The statement interface provides methods to execute queries with the database. The statement interface is a factory of ResultSet i,e. it provides factory method to get the object of ResultSet.
+
+*Socket in java
+Socket is simply an endpoint for communications between the machines.
+Socket programming is used for communications between the applications running on different JRE.It may be connection-oriented or connection-less.
+Socket and ServerSocket are used for connection-oriented and DatagramSocket and DatagramPacket are used for connection-less service.The client in socket programming must know two information: 1.IP Address of server 2.Port Number
+A socket can be create using Socket class.accept() is used to returns the socket and establish a connection between server and client.DataInputStream and DataOutputStream and some other io classes are used for data read/write operations.
+URL class returns protocol,hostname,port and filename etc.URLConnection class provide web site code.HTTPConnectionURL class provide information such as header information,status code,response code etc.InetAddress provides ip address,hostname and other methods.A datagram is basically an information but there is no guarantee of its content, arrival or arrival time.
+
+Dynamic Proxy Class API
+A dynamic proxy class (simply referred to as a proxy class below) is a class that implements a list of interfaces specified at runtime when the class is created.
+A proxy interface is such an interface that is implemented by a proxy class.
+A proxy instance is an instance of a proxy class.
+
+The use of private constructor is to serve singleton classes. A singleton class is one which limits the number of objects creation to one. Using private constructor we can ensure that no more than one object can be created at a time. By providing a private constructor you prevent class instances from being created in any place other than this very class. We will see in the below example how to use private constructor for limiting the number of objects for a singleton class.
+
+
+
+*Data Structures
+Abstract data types-
+List-It is used for insert,remove,update operation on data.
+Queue-FIFO
+Stack-LIFO,push and pop,peek
+Map-every object has their own name in the form of key value pair.
+ 
+TASK :-
+*i have to create a sam interface with two methods and try to call both method in the class
+*Reentrant Monitor in Java
+*unicode system
+
+
+Link Section :-
+*https://www.javatpoint.com/java-lambda-expressions
+*https://www.javatpoint.com/java-inner-class
+*To learn more, explore topics here on SO and the Interwebs about:
+    Concurrency - http://java.sun.com/docs/books/tutorial/essential/concurrency/index.html
+    Java Memory Model - http://en.wikipedia.org/wiki/Java_Memory_Model
+Keep exploring these topics until the name "Brian Goetz" becomes permanently associated with the term "concurrency" in your brain. 
+*http://docs.oracle.com/javase/specs/jls/se8/html/index.html
+*https://www.javatpoint.com/inter-thread-communication-example
+*https://www.javatpoint.com/difference-between-arraylist-and-linkedlist
+?anonymous object not work with abstract class method.
+
+{{ }}-Outside bracket is inner class whereas inner one are instantiation initializers.
