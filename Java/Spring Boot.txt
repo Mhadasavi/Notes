@@ -1,0 +1,137 @@
+1. What is Spring Boot?
+- Spring Boot is a project that is built on the top of the Spring Framework.
+- It provides an easier and faster way to set up, configure, and run the applications.
+- There is no requirement for XML configuration.
+
+2. Advantages
+- It increases productivity and reduces development time.
+- It also minimizes writing multiple boilerplate codes, XML configuration, and annotations.
+- There is no requirement for XML configuration.
+- It provides starter POMs to simplify maven configuration.
+
+3. Limitation
+- Spring Boot can use dependencies that are not going to be used in the application. It increase the size of the application.
+
+4. Spring Initializer
+- It is a Spring web tool. We can create Spring Boot project by providing project details on spring initializer.
+
+5. Spring Boot Actuator
+- Actuator is a tool which has HTTP endpoints. It helps us to monitor the application when it is pushed to production.
+
+6. thymeleaf
+- It is a server side Java template engine for web application.
+
+7. How to connect Spring Boot to the database using JPA?
+- Spring Boot provides spring-boot-starter-data-jpa starter to connect Spring application with relational database efficiently.
+
+8. Spring Boot Annotation
+- Spring Boot Annotations is a form of metadata that provides data about a program.
+	i. @Required: It applies to the bean setter method. It indicates that the annotated bean must be populated at configuration time with the required property. 
+		ex- public class Machine   
+			{  
+			private Integer cost;  
+			@Required  
+			public void setCost(Integer cost)   
+			{  
+			this.cost = cost;  
+			}}  
+	ii. @Autowired: It is used for dependency injection. It is used to autowire spring bean on setter methods, reference variable, and constructor.
+		ex- @Component  
+			public class Customer  
+			{  
+			private Person person;  
+			@Autowired  
+			public Customer(Person person)   
+			{   
+			this.person=person;  
+			}  
+			}  
+	iii. @Component: It is a class-level annotation. It is used to mark a Java class as a bean. A Java class annotated with @Component is found during the classpath. The Spring Framework pick it up and configure it in the application context as a Spring Bean.
+		ex- @Component  
+			public class Student  
+			{  
+			.......  
+			} 
+	iv. @Configuration: It is a class-level annotation. Tags the class as a source of bean definitions for the application context.
+		ex- @Configuration  
+			public class Vehicle  
+			{  
+			@BeanVehicle engine()  
+			{  
+			return new Vehicle();  
+			}  
+			}  
+	v. @ComponentScan: It is used when we want to scan a package for beans. It is used with the annotation @Configuration. We can also specify the base packages to scan for Spring Components.
+		ex- @ComponentScan(basePackages = "com.javatpoint")  
+			@Configuration  
+			public class ScanComponent  
+			{  
+			// ...  
+			}  
+	v. @Bean: It is a method-level annotation. It is an alternative of XML <bean> tag. It tells the method to produce a bean to be managed by Spring Container.
+		ex- @Bean  
+			public BeanExample beanExample()   
+			{  
+			return new BeanExample ();  
+			}  
+	
+	vii. @Controller: The @Controller annotation marks the class as controller class. It is used to serve web pages. By default, it returns a string that indicates which route to redirect. It is mostly used with @RequestMapping annotation.
+		ex- @Controller  
+			@RequestMapping("books")  
+			public class BooksController   
+			{  
+			@RequestMapping(value = "/{name}", method = RequestMethod.GET)  
+			public Employee getBooksByName()   
+			{  
+			return booksTemplate;  
+			}  
+			}  
+	viii. @Service: It is also used at class level. It tells the Spring that this class contains the business logic.
+		ex- package com.javatpoint;  
+			@Service  
+			public class TestService  
+			{  
+			public void service1()  
+			{  
+			//business code  
+			}  
+			}
+	ix. @Repository: It is a class-level annotation. It is used to indicate that the class provides the mechanism for storage, retrieval, search, update and delete operation on objects.	
+	
+	x. @EnableAutoConfiguration: It auto-configures the bean that is present in the classpath and configures it to run the methods. The use of this annotation is reduced in Spring Boot 1.2.0 release because developers provided an alternative of the annotation, i.e. @SpringBootApplication.
+	
+	xi. @SpringBootApplication: This is used to mark the main class of a spring boot application. It is a combination of three annotations @EnableAutoConfiguration, @ComponentScan, and @Configuration.	
+		The main() method uses Spring Boot’s SpringApplication.run() method to launch an application. 
+	
+	xii. @RequestMapping: It is used to map the web requests. It has many optional elements like consumes, header, method, name, params, path, produces, and value. We use it with the class as well as the method.
+		ex- @Controller  
+			public class BooksController   
+			{  
+			@RequestMapping("/computer-science/books")  
+			public String getAllBooks(Model model)  
+			{  
+			//application code  
+			return "bookList";  
+			}  
+	xiii. @GetMapping: It maps the HTTP GET requests on the specific handler method. It is used instead of using: @RequestMapping(method = RequestMethod.GET)
+	
+	xiv. @PostMapping: It maps the HTTP POST requests on the specific handler method. It is used instead of using: @RequestMapping(method = RequestMethod.POST)
+	
+	xv. @RequestBody: It is used to bind HTTP request with an object in a method parameter.
+	
+	xvi. @ResponseBody: It binds the method return value to the response body.
+	
+	xvii. @PathVariable: It is used to extract the values from the URI. It is most suitable for the RESTful web service, where the URL contains a path variable. We can define multiple @PathVariable in a method.
+	
+	xviii. @RequestParam: It is used to extract the query parameters form the URL. It is also known as a query parameter.
+		   It is more useful on a traditional web application where data is mostly passed in the query parameters. 
+	
+	xix. @RequestHeader: It is used to get the details about the HTTP request headers. We use this annotation as a method parameter. The optional elements of the annotation are name, required, value, defaultValue. 
+	
+	xx. @RestController: It can be considered as a combination of @Controller and @ResponseBody annotations. 
+	
+9. Spring Profiles - Profiles are a core feature of the framework — allowing us to map our beans to different profiles — for example, dev, test, and
+   prod.
+   ex- @Component
+		@Profile("dev")
+		public class DevDatasourceConfig

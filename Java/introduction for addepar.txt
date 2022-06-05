@@ -1,0 +1,36 @@
+Interviewer : Rob
+
+*  Introduction
+	My name is upkar, i am working as an application engineer in hexaview from last 2+ year. 
+	I worked on .net and java
+	Tech Stack that i worked on is Java, Spring, Spring Boot, Hibernate, JPA, Maven, Asp.Net .Net Core, Npoco, Micro services
+	If ask about client project - Whiteoak is a lender in US & UK which provide loan services to small & medium sized businesses.
+
+* 	What do you think about Microservices and why used in your project ?
+    Using microservices, we don't have to scale our whole application.
+	This allows each component to easily scale with tools like Kubernetes in case of high demand. 
+
+* Cost estimations and man days estimations
+	to measuring project estimation, it is important to give estimation in man-hour. 
+	A man-hour defines the amount of work done by an average IT specialist during one hour worked without any interruption.
+
+Interviewer : Kyle
+
+*	Brief intro
+*	Previous Project discussion
+	whiteoak uk project - 
+	•	Creating rest APIs using .Net MVC to achieve various business logic
+	•	Implementation of Data layers.
+	•	Create User Management Service in sf (optional)
+	•	Create migrations.
+	•	Resolve Sysaids tickets (daily issues raised by business users)
+	
+* How to handle new feature request
+- Analyze the request  
+- Clear the requirements with the user.
+- Complete the work on it.
+* Have rejected any user request based on feasibility? 
+- Not Yet
+* Unit test
+
+

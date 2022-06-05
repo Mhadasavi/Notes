@@ -1,0 +1,33 @@
+Monolithic
+- An application whose all the functionalities exists in the single codebase, it is called monolethic application.
+
+Disadvantage of Monolithic Application
+- As project scale, it becomes difficult to manages.
+- Redeployment of whole application is needed for a single change.
+- Difficult to adapt a new technology for single functionality.
+- Single bug may down your application.
+
+Advantage
+- Simple to develop.
+- Simple to deploy.
+- Problem of network latency are relatively less.
+
+Microservices
+- Microservices are small services that work together.
+- These small services communicating with each other using light weight protocols like HTTP.
+
+Advantage
+- It is possible to change or upgrade each service individually rather than upgrading in the entire application.
+- One service may down without impacting to others.
+- Easily use different technology for building different microservices.
+- Less dependency, loosely coupled.
+
+API gateway represents a single entry point into the system, providing the request routing, security.
+Spring Cloud Gateway is API Gateway implementation. It consist
+Route
+Predicate
+Filter
+
+API?
+- allows two applications to talk to each other.
+- it sends the request to the requested provider and then delivers the response back to you.

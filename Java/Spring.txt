@@ -1,0 +1,89 @@
+1. What is Spring Framework?
+- Spring is a open-source, loosely coupled, lightweight, java framework.
+- It is also called the “framework of frameworks” as it provides support to other frameworks like hibernate.
+- We can define dependencies for the Spring project in pom.xml.
+
+2. Features of Spring
+- It provides templates for jdbc, hibernate, jpa etc. So there is no need to write too much code.
+- Spring applications are loosely coupled because of dependency injection.
+- The dependency injection feature of spring makes the easy and fast development.
+- It is lightweight because of its pojo implementation.
+
+3. Spring Modules
+- The Spring framework comprises of many modules such as core, beans, context, expression language, AOP, JDBC, ORM, Web, Servlet, Struts etc. 
+
+4. IOC
+- The IoC container is responsible to instantiate, configure and assemble the objects.
+- There are two types of IoC containers. They are:
+	* BeanFactory
+	* ApplicationContext
+- ApplicationContext provides some extra functionality than BeanFactory such as simple integration with Spring AOP.
+
+5. Dependency injection 
+- It is a design pattern used to implement IoC.
+- It allows the creation of dependent objects outside the class and provide those objects to a class through different ways.
+- It removes the dependency from the code.
+- We provide the information from the external source such as XML file.
+- It makes the code loosely coupled.
+- We can achieve DI by 2 ways :-
+	* Constructor injection - IOC container invokes the constructor
+	  ex- The constructor-arg element invokes the constructor.
+			<bean id="e" class="com.javatpoint.Employee">  
+			<constructor-arg value="10" type="int"></constructor-arg>  
+			</bean>  
+	* Setter injection - container calls the setter method to instantiate the bean.
+	ex- The <property> subelement of <bean> is used for setter injection.
+			<bean id="obj" class="com.javatpoint.Employee">  
+			<property name="id">  
+			<value>20</value>  
+			</property>  
+- setter injection is flexible than constructor injection because
+	* Partial dependency: can be injected using setter injection.
+	* Setter injection overrides the constructor injection.
+	* We can easily change the value by setter injection. It doesn't create a new bean instance always like constructor.
+	
+6. Autowiring
+- It injects the object dependency implicitly.
+- It can't be used to inject primitive and string values. It works with reference only.
+	<bean id="emp" class="com.javatpoint.Employee" autowire="byName" /> 
+- Autowiring modes
+	1)	no	this is the default mode, it means autowiring is not enabled.
+	2)	byName	injects the bean based on the property name. It uses setter method.
+	3)	byType	injects the bean based on the property type. It uses setter method.
+	4)	constructor	It injects the bean using constructor
+
+
+7. Bean
+- A Spring Bean is simply a java object.When java objects are created by the spring container,then spring refers to them as "Spring Beans".
+
+
+8. Bean LifeCycle
+-	Container Started -> Beans instantiated -> Dependencies injected -> Internal spring processing -> init method(Bean is
+	ready,container is shutdown).
+
+9. Bean Scopes
+- The Spring Framework has five scope supports. They are:
+	Singleton: The bean instance created only once and same instance will be returned by the IOC container. It is the default scope.
+	Prototype: The bean instance will be created each time when requested.
+	Request: The bean instance will be created per HTTP request.
+	Session: The bean instance will be created per HTTP session.
+	Global-session: The bean instance will be created per HTTP global session. It can be used in portlet context only.
+
+10. Transaction management supports
+-	Spring framework provides two type of transaction management supports:
+	Programmatic Transaction Management: should be used for few transaction operations.
+	Declarative Transaction Management: should be used for many transaction operations.	
+
+11. Aspect Oriented Programming (AOP)
+- AOP breaks the program logic into distinct parts (called concerns). It is used to increase modularity by cross-cutting concerns.
+- A cross-cutting concern is a concern that can affect the whole application and should be centralized in one location in code such as
+  logging, security etc.
+  
+12. JDBCTemplate
+-  By using the JdbcTemplate class, you don't need to create connection,statement,start transaction,commit transaction and close connection to execute different queries. You can execute the query directly.
+
+Component scanning in spring boot and how it works 
+
+* Spring Data Jdbc
+	Spring Data JDBC is a persistence framework.
+	It doesn't provide cache, lazy loading but provide mapped entities, repositories, query annotations, and JdbcTemplate.

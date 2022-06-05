@@ -1,0 +1,24 @@
+query
+
+sql injection
+it execute malicious SQL statements that control d/b server.
+
+How to Prevent an SQL Injection
+The only sure way to prevent SQL Injection attacks is input validation and parametrized queries including prepared statements.
+
+Agile
+
+- Agile simply means continuous incremental improvement through small and frequent releases.
+- There are two different roles in a Agile methodology. These are the Scrum Master and Product Owner.
+	1. Scrum Master
+	The Scrum Master is a team leader which remove all the blocks that occur related to devs or project etc.
+	2. Product Owner
+	They are the stakeholder that represent the client and define the requirement and priortize them.
+	
+- Product owner creates the User stories of different tasks and categorize them into sprint.
+- Scrum Master assigns those User stories to devs.
+- Devs will analyze those stories and share their estimates.
+- Devs will start their work on the stories and deployed on the Qa server for testing.
+- QA will test them and share the status with product owner.
+- Once the given User stories of sprint are tested and working fine, it will deployed to UAT and prod.
+- In case any story left in the sprint, it will shift to the next sprint.

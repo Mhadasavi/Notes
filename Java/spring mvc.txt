@@ -1,0 +1,12 @@
+1. What is the front controller class of Spring MVC?
+The DispatcherServlet class works as the front controller in Spring MVC.
+
+2. What does @Controller annotation?
+The @Controller annotation marks the class as controller class. It is applied on the class.
+
+3. What does @RequestMapping annotation?
+The @RequestMapping annotation maps the request with the method. It is applied on the method.
+
+4. What does the ViewResolver class?
+The View Resolver class resolves the view component to be invoked for the request. It defines prefix and suffix properties to resolve the view component.The org.springframework.web.servlet.view.InternalResourceViewResolver class is widely used.
+
