@@ -1,0 +1,61 @@
+ REST(Representational State transfer)
+To connect to the weather service we can make a rest api call over http.
+It is lightweight approach for communicating between applications.
+REst is language independent.
+Client and server can use any programming language.
+Rest application use any data format.Commonly see xml and json(Javascript object notation). json is most popular and modern.
+
+JSON
+* Lightweight data format for storing and exchanging data ... plain text.
+* Langugage independent ... not just for javascript.
+* Can use with any programming language: java,c#, python etc...
+*Data bindinng is the process of converting json data to a java pojo. Also known as mappng , serialization/deserialization, marshalling/unmarshalling.
+
+Jacskon data binding
+*Spring uses the jackson project behind the scenes.
+*Jackson handles data binding between json and java pojo.
+*By default, jackson will call appropriate getter/setter method.So if we are converting from json to pojo, it will call our given setter method and vice versa. 
+*When building spring rest applications, spring will automatically handle jackson integration.
+* JSON data being passed to rest controller is converted to pojo, and java object being returned from rest controller is converted to json atuomatically. 
+
+Rest over Http
+* Most common use of rest is over http.
+* Leverage Http methods for crud operations are :
+Post - Create a new entity.
+Get - Read a list of entities or single entity.
+Put - Update the entity.
+Delete - Delete the entity.
+*Client send httprequestmessage to the server.
+Http Request Message contains request line:the Http command, header variabels: request metadata, Message body: contents of message.
+* Server send http response message to the client.
+Http response message contains response line:server protocol and status code, header variable:response metadata, message body: contents of message.
+
+Http response status codes
+code range	Description
+100-199		Informational
+200-299		Successful
+300-399		Redirection
+400-499		Client error
+500-599		Server error
+
+MIME Content Types
+*The message format is described by MIME content type- Multipurpose internet mail-extension.
+*Basic syntax: type/sub-type
+*Example:text/html, text/plain(it is for browser.info returned to client so client render it accordingly)
+	 application/xml, application/json,...
+(it is for restful client)
+
+Spring MVC provides support for spring rest.New Annotation is @RestController. It is an extension of @Controller. It handles rest request and response.
+
+Web browser vs postman
+For simple rest testing for get requests, web browser and postman are similar.
+However, for advanced rest testing post, put etc..., postman has much better support.
+Posting JSON data, setting content type. 
+Passing HTTP request headers, authentication etc...
+
+Rest exception
+Define exception handler methods with @ExceptionHandler annotation.
+Exception handler will return a ResponseEntity.
+ResponseEntity is a wrapper for the HTTP response object.
+ResponseEntity provides fine-grained control to specify:HTTP staus code, HTTP headers and  Response body.
+@ControllerAdvice is similar to interceptor/filter.It pre-process requests to controllers. Post-process responses to handle exceptions. Perfect for globle exception handling. Ex-when we apply same exception on multiple controllers.

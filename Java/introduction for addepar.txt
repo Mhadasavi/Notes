@@ -33,4 +33,10 @@ Interviewer : Kyle
 - Not Yet
 * Unit test
 
+read the file using bufferedreader 
+read the data line by line using loop (while loop)
+split the csv data by , delimiter and store in array.
+create the object of pojo class and pass array's data on index basis as a parameter.
+convert this pojo using Gson library.
+
 

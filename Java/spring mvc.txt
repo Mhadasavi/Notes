@@ -9,4 +9,3 @@ The @RequestMapping annotation maps the request with the method. It is applied o
 
 4. What does the ViewResolver class?
 The View Resolver class resolves the view component to be invoked for the request. It defines prefix and suffix properties to resolve the view component.The org.springframework.web.servlet.view.InternalResourceViewResolver class is widely used.
-

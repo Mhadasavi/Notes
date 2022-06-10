@@ -56,7 +56,7 @@
 		ex- @Configuration  
 			public class Vehicle  
 			{  
-			@BeanVehicle engine()  
+			@Bean Vehicle engine()  
 			{  
 			return new Vehicle();  
 			}  
@@ -130,8 +130,10 @@
 	
 	xx. @RestController: It can be considered as a combination of @Controller and @ResponseBody annotations. 
 	
-9. Spring Profiles - Profiles are a core feature of the framework — allowing us to map our beans to different profiles — for example, dev, test, and
+9. Spring Profiles -  allowing us to map our beans to different profiles — for example, dev, test, and
    prod.
    ex- @Component
 		@Profile("dev")
 		public class DevDatasourceConfig
+
+Component scanning in spring boot and how it works 
