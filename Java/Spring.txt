@@ -45,6 +45,7 @@
 6. Autowiring
 - It injects the object dependency implicitly.
 - Spring looks for a class that matches the property.
+- in autowiring, spring will scans @component (anyone implements specific interface) if so, inject them.
 - It can't be used to inject primitive and string values. It works with reference only.
 	<bean id="emp" class="com.javatpoint.Employee" autowire="byName" /> 
 - Autowiring modes
@@ -52,6 +53,10 @@
 	2)	byName	injects the bean based on the property name. It uses setter method.
 	3)	byType	injects the bean based on the property type. It uses setter method.
 	4)	constructor	It injects the bean using constructor
+- when we have multiple implementation of interface, we can use @qualifer. we can specify correct implementation class in @qualifer.
+	- we can apply @qualifer with constructor, setter and field injection.
+	- PostConstruct annotation is used on a method that needs to be executed after constructor & dependency injection is done to perform any initialization.
+	- The PreDestroy annotation is used when we want to execute some code before bean is destroyed.
 
 7. Bean
 - A Spring Bean is simply a java object.When java objects are created by the spring container,then spring refers to them as "Spring Beans".
@@ -67,6 +72,14 @@
 	Request: The bean instance will be created per HTTP request.
 	Session: The bean instance will be created per HTTP session.
 	Global-session: The bean instance will be created per HTTP global session. It can be used in portlet context only.
+	
+	we can call the init-method or destroy method in the bean tag in xml config file. It works for all scopes except prototype.
+	For "prototype" scoped beans, Spring does not call the destroy method. 
+
+10. 3 ways of configuring spring container
+- full xml config file
+- xml component scans
+- java configuration class
 
 10. Transaction management supports
 -	Spring framework provides two type of transaction management supports:

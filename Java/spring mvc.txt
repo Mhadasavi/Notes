@@ -1,8 +1,22 @@
+1. What is Spring MVC?
+It is a design pattern which is used to create web application.
+In this, browser sends the request to front controller.
+front controller delegates the request to controller.
+Controller calls the business logic and return the model data to front controller.
+Front controller sends this model data to view template (jsp or other).
+jsp returns this data as a response to the browser.
+
 1. What is the front controller class of Spring MVC?
-The DispatcherServlet class works as the front controller in Spring MVC.
+The DispatcherServlet class works as the front controller in Spring MVC. It delegates the request to the controller.
 
 2. What does @Controller annotation?
-The @Controller annotation marks the class as controller class. It is applied on the class.
+The @Controller annotation marks the class as controller class. It is applied on the class. A controller handles the request, calls the business logic and place data in models.
+
+3. What is model?
+It contains data which is return to the viewtemplate. It could be java object or collection.
+
+4. What is viewtemplate or view?
+In spring, we commonly used jsp+jstl for views. Views read the data from the model and display it.
 
 3. What does @RequestMapping annotation?
 The @RequestMapping annotation maps the request with the method. It is applied on the method.
