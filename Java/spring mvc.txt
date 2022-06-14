@@ -18,8 +18,18 @@ It contains data which is return to the viewtemplate. It could be java object or
 4. What is viewtemplate or view?
 In spring, we commonly used jsp+jstl for views. Views read the data from the model and display it.
 
-3. What does @RequestMapping annotation?
+5. What does @RequestMapping annotation?
 The @RequestMapping annotation maps the request with the method. It is applied on the method.
+We can also apply it on controller, in that case it serves as a parent mapping for controller.
 
-4. What does the ViewResolver class?
+6. @RequestParam("") String name;
+It reads the request parameter form data and binds it to the variable
+
+7. What does the ViewResolver class?
 The View Resolver class resolves the view component to be invoked for the request. It defines prefix and suffix properties to resolve the view component.The org.springframework.web.servlet.view.InternalResourceViewResolver class is widely used.
+
+8. FormTags
+It is used for data binding. It automatically set/get data from java objects.
+ex- form:form, form:input, form:checkbox, form:select etc.
+To use this, we need to specify spring namespace at the beginning of jsp file.
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
