@@ -97,3 +97,6 @@
 * Spring Data Jdbc
 	Spring Data JDBC is a persistence framework.
 	It doesn't provide cache, lazy loading but provide mapped entities, repositories, query annotations, and JdbcTemplate.
+	
+* we can read propoerties file from classpath using @PropertySource("classpath:mylogger.properties")
+we can use @Value("${}") to inject the values in variable from properties file. 

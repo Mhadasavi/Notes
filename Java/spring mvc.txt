@@ -33,3 +33,13 @@ It is used for data binding. It automatically set/get data from java objects.
 ex- form:form, form:input, form:checkbox, form:select etc.
 To use this, we need to specify spring namespace at the beginning of jsp file.
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+9. @ModelAttribute
+It binds the data with the object.
+ex - public string processForm(@ModelAttribute("student")
+
+10. In spring mvc, we create a form as below:
+	<form:form action="processForm" modelAttribute="student">
+	First Name : <form:input path="firstName" value="" />	</form:form>
+	where action is the controller's action method. modelAttribute is defined in controller action method as key value.
+	in path="firstName", spring will call the setFirstName method of model and set the input value or take value from value tag.
