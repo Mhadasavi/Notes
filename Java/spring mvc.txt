@@ -43,3 +43,20 @@ ex - public string processForm(@ModelAttribute("student")
 	First Name : <form:input path="firstName" value="" />	</form:form>
 	where action is the controller's action method. modelAttribute is defined in controller action method as key value.
 	in path="firstName", spring will call the setFirstName method of model and set the input value or take value from value tag.
+
+11. Spring supports Bean validation API which provides features such as required, validate length, validate numbers and regular expression.
+	Some of the annotations are @NotNull(message=""), @Min, @Max, @Size(min=1,message=""), @Pattern, @Future/Past...
+	We can use above annotations in the model class. In the UI part, we have to use <form:errors path="" cssClass=""/>.
+	In the controller part, we have to use @Valid which performs validation rules on the model object. BindingResult stores the validation result.
+	ex- @RequestMapping("")
+	public String show(@Valid @ModelAttribute("Customer") Customer customer, BindingResult result){
+	if(result.hasErrors()){return "form"; }
+	else return "successform";
+	}
+	
+12. Hibernate validator 7 is based on Jakarta EE 9.
+	Jakarta EE is the community version of Java EE(Servlets, jsp, jdbc, EJB etc).
+	javax.* packages are renamed to jakarta.* 
+	Spring 5 is not compatible with hibernate validator 7 because it still based on some components of java EE(javax.*).
+	Hibernate validator 6.2 is compatible with spring 5 and it also has same features as validator 7.
+	
