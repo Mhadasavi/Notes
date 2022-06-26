@@ -45,7 +45,7 @@ ex - public string processForm(@ModelAttribute("student")
 	in path="firstName", spring will call the setFirstName method of model and set the input value or take value from value tag.
 
 11. Spring supports Bean validation API which provides features such as required, validate length, validate numbers and regular expression.
-	Some of the annotations are @NotNull(message=""), @Min, @Max, @Size(min=1,message=""), @Pattern, @Future/Past...
+	Some of the annotations are @NotNull, @Min, @Max, @Size(min=1,message=""), @Pattern, @Future/Past...
 	We can use above annotations in the model class. In the UI part, we have to use <form:errors path="" cssClass=""/>.
 	In the controller part, we have to use @Valid which performs validation rules on the model object. BindingResult stores the validation result.
 	ex- @RequestMapping("")
@@ -54,7 +54,12 @@ ex - public string processForm(@ModelAttribute("student")
 	else return "successform";
 	}
 	
-12. Hibernate validator 7 is based on Jakarta EE 9.
+12. What is @InitBinder?
+	The Init Binder is an annotation that is used to customize the request being sent to the controller.
+	It helps to control and format requests that come to the controller as it is defined in the controller.
+	ex- we can remove string's whitespaces using this.
+ 
+13. Hibernate validator 7 is based on Jakarta EE 9.
 	Jakarta EE is the community version of Java EE(Servlets, jsp, jdbc, EJB etc).
 	javax.* packages are renamed to jakarta.* 
 	Spring 5 is not compatible with hibernate validator 7 because it still based on some components of java EE(javax.*).
