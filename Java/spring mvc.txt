@@ -65,3 +65,14 @@ ex - public string processForm(@ModelAttribute("student")
 	Spring 5 is not compatible with hibernate validator 7 because it still based on some components of java EE(javax.*).
 	Hibernate validator 6.2 is compatible with spring 5 and it also has same features as validator 7.
 	
+14. Regular Expression
+	A sequence of characters that define a search pattern which is used to find strings.
+	We can use @Pattern for this.
+	ex- @Pattern(regexp="^[a-zA-Z0-9]{5}",message="only 5 chars/numbers")
+		private String PostalCode;
+		
+15. We can define custom annotations by using @interface.
+	ex- @constraint(validatedBy=CourseClass.class)
+		@Target({ElementType.METHOD, ElementType.FIELD}) // where to apply this annotation
+		@Retension(RetensionPolicy.RUNTIME) //Indicates how long annotations with the annotated type are to be retained. 
+		public @interface fieldName{}
