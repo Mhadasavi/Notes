@@ -95,6 +95,10 @@
 	Many to One - An employee can have many job offers
 	Many to Many - A person can have many bank accounts and a bank can have many persons.
 	
+	* Uni-directional mapping - It is a one directional mapping. We can implement this by using @oneToOne & @JoinColumn to empdetails reference in Employee. Ex- Suppose we have Employee and Employee details. We are using @oneToOne mapping. If we save Employee, employee details will also save. 
+	* Bi-directional mapping - It is two-way or two-directional mapping. We can implement this by using @oneToOne(mappedBy="property of emp") to emp reference in EmployeeDetails. Ex- If we want to load employee details, we can't do this with uni-directional mapping. We have to use bi-directional mapping.
+	*mappedBy tells hibernate to looks at the given property in the class(emp), use information from the class(emp) @JoinColumn to help find associated object.
+	
 	Cascade - It means apply the same operation to related entities.
 			ex - if we are saving employee, we should also save employee details. same for delete and it is known as cascade delete.
 				 We can't use cascade delete in many to many mappings. It is depends on use case.
