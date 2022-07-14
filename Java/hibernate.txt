@@ -119,6 +119,16 @@ TODO -
 GenerationType
 If the database table column is set with auto_increment then why are we using @generatedValue? For this, i need to insert a row by query and then try to insert record using hibernate. and check for the output.
 
-Cascading
+- Cascading
+	types-
+	Persist - If entity is persisted / saved, related entity will also be persisted.
+	Remove - If entity is removed / deleted, related entity will also be deleted.
+	Refresh - If entity is refreshed, related entity will also be refreshed.
+	Detach - If entity is detached (not associated with session), then related entity will also be detached.
+	Merge - If entity is merged, then related entity will also be merged.
+	All -  All of the above cascade types.
+	ex - @OneToOne(cascade=CascadeType.ALL)
+	
 Eager and lazy loading
 Relationship (Uni & bi directional relationship)
+Entity Lifecycle
