@@ -24,10 +24,8 @@
 	In above, if hibernate config file not given in configure(), hibernate will look for default file name i.e., hibernate.cfg.xml
 6.	“session being a thread-safe object”?
 	No, Session is not a thread-safe object which means that any number of threads can access data from it simultaneously.
-	
-
-	
-10.	Hibernate Configuration File?
+		
+7.	Hibernate Configuration File?
 	Hibernate Configuration File or hibernate.cfg.xml JDBC configuration file. By default, this file is placed under the src/main/resource folder.
 	The file contains database related configurations and session-related configurations like jdbc url, user id and password.
 	Hibernate facilitates providing the configuration either in an XML file (like hibernate.cfg.xml) or a properties file (like hibernate.properties) or through java annotations.
@@ -38,22 +36,22 @@
 	</session-factory>
 	</hibernate configuration>
 	
-11.	How do you create an immutable class in hibernate?
+8.	How do you create an immutable class in hibernate?
 	Immutable classes in hibernate can also be created by using @Immutable annotation.
 
-12.	What is criteria API in hibernate?
+9.	What is criteria API in hibernate?
 	Criteria API in Hibernate helps developers to build dynamic criteria queries on the persistence database. Criteria API is a more powerful and flexible alternative to HQL (Hibernate Query Language) queries for creating dynamic queries.
 
-13. Entity class
+10. Entity class
 	A java class that is mapped to a database table. It is a regular POJO class with some annotations.
 
-14. @Entity
+11. @Entity
 	We can map a class to database table using @entity.
 
-15. @Table
+12. @Table
 	It specifies the database table to be used for mapping. If we don't use @Table annotation, hibernate will use the class name as the table name by default. 
 
-16. @Id
+13. @Id
 	It specifies the primary key of the entity.
 	If we want to automatically generate the primary key value, we can add the @GeneratedValue annotation.
 	This can use four generation types: AUTO, IDENTITY, SEQUENCE and TABLE.
@@ -66,19 +64,19 @@
 	We can also define our own custom generation strategy by override the generate().
 	If the database table column is set with auto_increment then why are we using @generatedValue? Suppose we are using @generatedvalue(strategy=generationType.IDENTITY) on private int id; then it will get the value for ID from the MySQL table with auto_incremented colum ID.
 
-17. @Column(name="name")
+14. @Column(name="name")
 	It  is used to specify the details of the column to which a field or property will be mapped.
 	We can use different attributes with this annotation like name, length, nullable, or unique.
 
-18. Why we are using JPA Annotation instead of Hibernate ?
+15. Why we are using JPA Annotation instead of Hibernate ?
 	JPA is a standard specification. Hibernate is an implementation of the JPA specification. You should be able to change hibernate with another implementation (like EclipseLink) without changing in the code. This is why you should only use JPA annotations.
 
-19. Can Hibernate generate database tables based on the Java code?
+16. Can Hibernate generate database tables based on the Java code?
 	Yes, by using <property name=”hbm2ddl.auto”>create</property> in hibernate.configuration.xml file.
 		hbm2ddl.auto–>create -Always create new schema
 		hbm2ddl.auto–>update -Update existing schema
 		
-20. Hibernate Query Language(HQL)
+17. Hibernate Query Language(HQL)
 	It is same as SQL (Structured Query Language) but it doesn't depends on the table of the database. Instead of table name, we use class name in HQL. So it is database independent query language.
 	ex- Query query=session.createQuery("from Emp");//here persistent class name is Emp  
 		List list=query.list();  //for hibernate 5.2+, we have to use getResultList() instead of list().
@@ -89,7 +87,7 @@
 	2.by query interface. ex- session.createQuery("update emp set email='abc' where id=1").executeUpdate();//executeUpdate are used for update & delete
 	//Delete
 
-21. Hibernate Mappings
+18. Hibernate Mappings
 	One to One - An employee can have an employee details 
 	One to Many - A company can have many employees
 	Many to One - An employee can have many job offers
@@ -103,16 +101,29 @@
 			ex - if we are saving employee, we should also save employee details. same for delete and it is known as cascade delete.
 				 We can't use cascade delete in many to many mappings. It is depends on use case.
 				 
-7. 	Can you explain what is lazy loading in hibernate?
-	Lazy loading is mainly used for improving the application performance by helping to load the child objects on demand.
+19. Fetch Types : Eager Loading & Lazy Loading
+	Eager Loading loads all the dependent entities. ex - Load Employee and all their details at once.
+	Lazy loading loads the main entity first and load dependent entities on demand. It is mainly used for improving the application performance by helping to load the child objects on demand.
 	since Hibernate 3 version, this feature has been enabled by default. It means that child objects are not loaded until the parent gets loaded.
+	We should only load data when absolutely needed. Prefer Lazy loading over eager loading.
+	We can define the fetch type during mapping.
+	ex- @OneToMany(fetch=FetchType.LAZY, mappedBy="")
+	Default Fetch types are-
+	@oneToOne - Eager
+	@oneToMany - Lazy
+	@ManyToOne - Eager
+	@ManyToMany - Lazy
+	If we closed the session before lazy loading, it will throw LazyInitializationException.
+	We can load the lazy data even after session close by 2 ways - 
+		* Calling the getter method before session close.
+		* With the help of HQL (fetch join in Query as per video 241 of hibernate udemy course). 
 	
-8. 	First Level Cache
+20. First Level Cache
 	This is local to the Session object and cannot be shared between multiple sessions.
 	This cache is enabled by default and there is no way to disable it.
 	The first level cache is available only until the session is open, once the session is closed, the first level cache is destroyed.
 
-9. 	Second Level Cache
+21. Second Level Cache
 	This cache is maintained at the SessionFactory level and shared among all sessions in Hibernate.
 	This is disabled by default, but we can enable it through configuration.
 	The second-level cache is available through the application’s life cycle, it is only destroyed and recreated when an application is restarted.
