@@ -130,6 +130,9 @@
 	
 	If an entity or object is loaded by calling the get() method then Hibernate first checked the first level cache, if it doesn’t find the object then it goes to the second level cache if configured. If the object is not found then it finally goes to the database and returns the object, if there is no corresponding row in the table then it returns null.
 
+22. Hibernate requires default constructor, why?
+	When Hibernate creates instance of entities using reflection it uses Class.newInstance() method, which require a no argument constructor to create an instance. It's effectively equivalent of new Entity(). This method throws InstantiationException if it doesn't found any no argument constructor in Entity class, and that's why it's advised to provide a no argument  constructor.
+	
 TODO -
 GenerationType
 If the database table column is set with auto_increment then why are we using @generatedValue? For this, i need to insert a row by query and then try to insert record using hibernate. and check for the output.
