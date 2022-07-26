@@ -78,7 +78,7 @@
 	vii. @Controller: The @Controller annotation marks the class as controller class. It is used to serve web pages. By default, it returns a string that indicates which route to redirect. It is mostly used with @RequestMapping annotation.
 		ex- @Controller  
 			@RequestMapping("books")  
-			public class BooksController   
+			public class BooksController   					
 			{  
 			@RequestMapping(value = "/{name}", method = RequestMethod.GET)  
 			public Employee getBooksByName()   
@@ -86,7 +86,9 @@
 			return booksTemplate;  
 			}  
 			}  
-	viii. @Service: It is also used at class level. It tells the Spring that this class contains the business logic.
+	viii. @Service: It is also used at class level. It tells the Spring that this class contains the business logic. 
+					Spring automatically configures the service implementation becuase of component-scanning.
+					Service layer is a intermediate layer for custom business logic that follows service facade design pattern. It integrate data from multiple sources (DAO/Repository).
 		ex- package com.javatpoint;  
 			@Service  
 			public class TestService  
@@ -96,14 +98,14 @@
 			//business code  
 			}  
 			}
-	ix. @Repository: It is a class-level annotation. It is used to indicate that the class provides the mechanism for storage, retrieval, search, update and delete operation on objects.	
+	ix. @Repository: It is a class-level annotation which is applied to DAO implementation. It is used to indicate that the class provides the mechanism for storage, retrieval, search, update and delete operation on objects. Spring will automatically register the DAO implementation by component-scanning.
 	
 	x. @EnableAutoConfiguration: It auto-configures the bean that is present in the classpath and configures it to run the methods. The use of this annotation is reduced in Spring Boot 1.2.0 release because developers provided an alternative of the annotation, i.e. @SpringBootApplication.
 	
 	xi. @SpringBootApplication: This is used to mark the main class of a spring boot application. It is a combination of three annotations @EnableAutoConfiguration, @ComponentScan, and @Configuration.	
 		The main() method uses Spring Boot’s SpringApplication.run() method to launch an application. 
 	
-	xii. @RequestMapping: It is used to map the web requests. It has many optional elements like consumes, header, method, name, params, path, produces, and value. We use it with the class as well as the method.
+	xii. @RequestMapping: It is used to map the web requests. It has many optional elements like consumes, header, method, name, params, path, produces, and value. We use it with the class as well as the method. Method is optional.
 		ex- @Controller  
 			public class BooksController   
 			{  
@@ -129,6 +131,10 @@
 	xix. @RequestHeader: It is used to get the details about the HTTP request headers. We use this annotation as a method parameter. The optional elements of the annotation are name, required, value, defaultValue. 
 	
 	xx. @RestController: It can be considered as a combination of @Controller and @ResponseBody annotations. 
+	
+	xxi. GET VS Post
+		Get is good for debugging, it can be bookmark and limitation on data length.
+		Post can't be bookmark, no limitation on data length and can also send binary data.
 	
 9. Spring Profiles -  allowing us to map our beans to different profiles — for example, dev, test, and
    prod.

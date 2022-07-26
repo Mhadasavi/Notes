@@ -96,6 +96,8 @@
 	* Uni-directional mapping - It is a one directional mapping. We can implement this by using @oneToOne & @JoinColumn to empdetails reference in Employee. Ex- Suppose we have Employee and Employee details. We are using @oneToOne mapping. If we save Employee, employee details will also save. 
 	* Bi-directional mapping - It is two-way or two-directional mapping. We can implement this by using @oneToOne(mappedBy="property of emp") to emp reference in EmployeeDetails. Ex- If we want to load employee details, we can't do this with uni-directional mapping. We have to use bi-directional mapping.
 	*mappedBy tells hibernate to looks at the given property in the class(emp), use information from the class(emp) @JoinColumn to help find associated object.
+	* Join Table - It provides  a mapping between 2 tables. It has foreign keys for each table to define the mapping relationship.  
+	ex- @JoinTable(name="table name", joinColumns=@JoinColumn(name=""), inverseJoinColumn=@JoinColumn(name=""))
 	
 	Cascade - It means apply the same operation to related entities.
 			ex - if we are saving employee, we should also save employee details. same for delete and it is known as cascade delete.
@@ -133,6 +135,8 @@
 22. Hibernate requires default constructor, why?
 	When Hibernate creates instance of entities using reflection it uses Class.newInstance() method, which require a no argument constructor to create an instance. It's effectively equivalent of new Entity(). This method throws InstantiationException if it doesn't found any no argument constructor in Entity class, and that's why it's advised to provide a no argument  constructor.
 	
+23. @Transactional - It automatically begin and end a transaction of hibernate code. There is no need to write explicitly transaction code. It can be 
+	applied on class or method.
 TODO -
 GenerationType
 If the database table column is set with auto_increment then why are we using @generatedValue? For this, i need to insert a row by query and then try to insert record using hibernate. and check for the output.
