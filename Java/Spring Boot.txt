@@ -126,7 +126,7 @@
 	xvii. @PathVariable: It is used to extract the values from the URI. It is most suitable for the RESTful web service, where the URL contains a path variable. We can define multiple @PathVariable in a method.
 	
 	xviii. @RequestParam: It is used to extract the query parameters form the URL. It is also known as a query parameter.
-		   It is more useful on a traditional web application where data is mostly passed in the query parameters. 
+		   It is more useful on a traditional web application where data is mostly passed in the query parameters. We can add it in the method parameter. ex- public string showForm(@RequestParam("id") int id){}
 	
 	xix. @RequestHeader: It is used to get the details about the HTTP request headers. We use this annotation as a method parameter. The optional elements of the annotation are name, required, value, defaultValue. 
 	
