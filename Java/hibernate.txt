@@ -24,10 +24,8 @@
 	In above, if hibernate config file not given in configure(), hibernate will look for default file name i.e., hibernate.cfg.xml
 6.	“session being a thread-safe object”?
 	No, Session is not a thread-safe object which means that any number of threads can access data from it simultaneously.
-	
-
-	
-10.	Hibernate Configuration File?
+		
+7.	Hibernate Configuration File?
 	Hibernate Configuration File or hibernate.cfg.xml JDBC configuration file. By default, this file is placed under the src/main/resource folder.
 	The file contains database related configurations and session-related configurations like jdbc url, user id and password.
 	Hibernate facilitates providing the configuration either in an XML file (like hibernate.cfg.xml) or a properties file (like hibernate.properties) or through java annotations.
@@ -38,22 +36,22 @@
 	</session-factory>
 	</hibernate configuration>
 	
-11.	How do you create an immutable class in hibernate?
+8.	How do you create an immutable class in hibernate?
 	Immutable classes in hibernate can also be created by using @Immutable annotation.
 
-12.	What is criteria API in hibernate?
+9.	What is criteria API in hibernate?
 	Criteria API in Hibernate helps developers to build dynamic criteria queries on the persistence database. Criteria API is a more powerful and flexible alternative to HQL (Hibernate Query Language) queries for creating dynamic queries.
 
-13. Entity class
+10. Entity class
 	A java class that is mapped to a database table. It is a regular POJO class with some annotations.
 
-14. @Entity
+11. @Entity
 	We can map a class to database table using @entity.
 
-15. @Table
+12. @Table
 	It specifies the database table to be used for mapping. If we don't use @Table annotation, hibernate will use the class name as the table name by default. 
 
-16. @Id
+13. @Id
 	It specifies the primary key of the entity.
 	If we want to automatically generate the primary key value, we can add the @GeneratedValue annotation.
 	This can use four generation types: AUTO, IDENTITY, SEQUENCE and TABLE.
@@ -66,20 +64,20 @@
 	We can also define our own custom generation strategy by override the generate().
 	If the database table column is set with auto_increment then why are we using @generatedValue? Suppose we are using @generatedvalue(strategy=generationType.IDENTITY) on private int id; then it will get the value for ID from the MySQL table with auto_incremented colum ID.
 
-17. @Column(name="name")
+14. @Column(name="name")
 	It  is used to specify the details of the column to which a field or property will be mapped.
 	We can use different attributes with this annotation like name, length, nullable, or unique.
 
-18. Why we are using JPA Annotation instead of Hibernate ?
+15. Why we are using JPA Annotation instead of Hibernate ?
 	JPA is a standard specification. Hibernate is an implementation of the JPA specification. You should be able to change hibernate with another implementation (like EclipseLink) without changing in the code. This is why you should only use JPA annotations.
 
-19. Can Hibernate generate database tables based on the Java code?
+16. Can Hibernate generate database tables based on the Java code?
 	Yes, by using <property name=”hbm2ddl.auto”>create</property> in hibernate.configuration.xml file.
 		hbm2ddl.auto–>create -Always create new schema
 		hbm2ddl.auto–>update -Update existing schema
 		
-20. Hibernate Query Language(HQL)
-	It is same as SQL (Structured Query Language) but it doesn't depends on the table of the database. Instead of table name, we use class name in HQL. So it is database independent query language.
+17. Hibernate Query Language(HQL)
+	It is the same as SQL (Structured Query Language) but it doesn't depend on the table of the database. Instead of the table name, we use the class name in HQL. So it is database independent query language.
 	ex- Query query=session.createQuery("from Emp");//here persistent class name is Emp  
 		List list=query.list();  //for hibernate 5.2+, we have to use getResultList() instead of list().
 		session.createQuery("from Emp e where e.lastName='Sharma'") // lastName is the class's property name not column name
@@ -88,8 +86,9 @@
 	1.by calling the setter method and pass the updated value. Then call session.getTransaction().commit()
 	2.by query interface. ex- session.createQuery("update emp set email='abc' where id=1").executeUpdate();//executeUpdate are used for update & delete
 	//Delete
+	query.createQuery("delete from emp where id=:empId");query.setParameter("empId",id);
 
-21. Hibernate Mappings
+18. Hibernate Mappings
 	One to One - An employee can have an employee details 
 	One to Many - A company can have many employees
 	Many to One - An employee can have many job offers
@@ -98,27 +97,47 @@
 	* Uni-directional mapping - It is a one directional mapping. We can implement this by using @oneToOne & @JoinColumn to empdetails reference in Employee. Ex- Suppose we have Employee and Employee details. We are using @oneToOne mapping. If we save Employee, employee details will also save. 
 	* Bi-directional mapping - It is two-way or two-directional mapping. We can implement this by using @oneToOne(mappedBy="property of emp") to emp reference in EmployeeDetails. Ex- If we want to load employee details, we can't do this with uni-directional mapping. We have to use bi-directional mapping.
 	*mappedBy tells hibernate to looks at the given property in the class(emp), use information from the class(emp) @JoinColumn to help find associated object.
+	* Join Table - It provides  a mapping between 2 tables. It has foreign keys for each table to define the mapping relationship.  
+	ex- @JoinTable(name="table name", joinColumns=@JoinColumn(name=""), inverseJoinColumn=@JoinColumn(name=""))
 	
 	Cascade - It means apply the same operation to related entities.
 			ex - if we are saving employee, we should also save employee details. same for delete and it is known as cascade delete.
 				 We can't use cascade delete in many to many mappings. It is depends on use case.
 				 
-7. 	Can you explain what is lazy loading in hibernate?
-	Lazy loading is mainly used for improving the application performance by helping to load the child objects on demand.
+19. Fetch Types : Eager Loading & Lazy Loading
+	Eager Loading loads all the dependent entities. ex - Load Employee and all their details at once.
+	Lazy loading loads the main entity first and load dependent entities on demand. It is mainly used for improving the application performance by helping to load the child objects on demand.
 	since Hibernate 3 version, this feature has been enabled by default. It means that child objects are not loaded until the parent gets loaded.
+	We should only load data when absolutely needed. Prefer Lazy loading over eager loading.
+	We can define the fetch type during mapping.
+	ex- @OneToMany(fetch=FetchType.LAZY, mappedBy="")
+	Default Fetch types are-
+	@oneToOne - Eager
+	@oneToMany - Lazy
+	@ManyToOne - Eager
+	@ManyToMany - Lazy
+	If we closed the session before lazy loading, it will throw LazyInitializationException.
+	We can load the lazy data even after session close by 2 ways - 
+		* Calling the getter method before session close.
+		* With the help of HQL (fetch join in Query as per video 241 of hibernate udemy course). 
 	
-8. 	First Level Cache
+20. First Level Cache
 	This is local to the Session object and cannot be shared between multiple sessions.
 	This cache is enabled by default and there is no way to disable it.
 	The first level cache is available only until the session is open, once the session is closed, the first level cache is destroyed.
 
-9. 	Second Level Cache
+21. Second Level Cache
 	This cache is maintained at the SessionFactory level and shared among all sessions in Hibernate.
 	This is disabled by default, but we can enable it through configuration.
 	The second-level cache is available through the application’s life cycle, it is only destroyed and recreated when an application is restarted.
 	
 	If an entity or object is loaded by calling the get() method then Hibernate first checked the first level cache, if it doesn’t find the object then it goes to the second level cache if configured. If the object is not found then it finally goes to the database and returns the object, if there is no corresponding row in the table then it returns null.
 
+22. Hibernate requires default constructor, why?
+	When Hibernate creates instance of entities using reflection it uses Class.newInstance() method, which require a no argument constructor to create an instance. It's effectively equivalent of new Entity(). This method throws InstantiationException if it doesn't found any no argument constructor in Entity class, and that's why it's advised to provide a no argument  constructor.
+	
+23. @Transactional - It automatically begin and end a transaction of hibernate code. There is no need to write explicitly transaction code. It can be 
+	applied on class or method.
 TODO -
 GenerationType
 If the database table column is set with auto_increment then why are we using @generatedValue? For this, i need to insert a row by query and then try to insert record using hibernate. and check for the output.

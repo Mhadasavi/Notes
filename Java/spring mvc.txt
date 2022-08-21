@@ -12,8 +12,9 @@ The DispatcherServlet class works as the front controller in Spring MVC. It dele
 2. What does @Controller annotation?
 The @Controller annotation marks the class as controller class. It is applied on the class. A controller handles the request, calls the business logic and place data in models.
 
-3. What is model?
-It contains data which is return to the viewtemplate. It could be java object or collection.
+3. What is model, DAO?
+Model contains data which is return to the viewtemplate. It could be java object or collection.
+DAO is a object/interface, which is used to access data from database of data storage. It contains different methods to perform  CRUD operations. 
 
 4. What is viewtemplate or view?
 In spring, we commonly used jsp+jstl for views. Views read the data from the model and display it.
@@ -76,3 +77,5 @@ ex - public string processForm(@ModelAttribute("student")
 		@Target({ElementType.METHOD, ElementType.FIELD}) // where to apply this annotation
 		@Retension(RetensionPolicy.RUNTIME) //Indicates how long annotations with the annotated type are to be retained. 
 		public @interface fieldName{}
+		
+shivom
