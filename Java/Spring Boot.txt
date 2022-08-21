@@ -135,6 +135,17 @@
 	xxi. GET VS Post
 		Get is good for debugging, it can be bookmark and limitation on data length.
 		Post can't be bookmark, no limitation on data length and can also send binary data.
+		
+	XXii. @EnableAspectJAutoProxy: It enables support for handling components marked with @Aspect annotation.
+	ex- @Configuration
+		@EnableAspectJAutoProxy
+		public class AopConfiguration {
+			...
+		}
+	
+	xxiii. @Aspect declares the class as aspect.
+	
+	xxiv. @Before annotated methods run exactly before all methods yy with pointcut expression.
 	
 9. Spring Profiles -  allowing us to map our beans to different profiles — for example, dev, test, and
    prod.
