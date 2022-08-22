@@ -81,19 +81,93 @@
 - xml component scans
 - java configuration class
 
-10. Transaction management supports
+11. Transaction management supports
 -	Spring framework provides two type of transaction management supports:
 	Programmatic Transaction Management: should be used for few transaction operations.
 	Declarative Transaction Management: should be used for many transaction operations.	
 
-11. Aspect Oriented Programming (AOP)
-- AOP breaks the program logic into distinct parts (called concerns). It is used to increase modularity by cross-cutting concerns.
-- A cross-cutting concern is a concern that can affect the whole application and should be centralized in one location in code such as
-  logging, security etc.
   
 12. JDBCTemplate
 -  By using the JdbcTemplate class, you don't need to create connection,statement,start transaction,commit transaction and close connection to execute different queries. You can execute the query directly.
 
+13. Aspect Oriented Programming (AOP)
+- AOP breaks the program logic into distinct parts (called concerns). It is used to increase modularity by cross-cutting concerns.
+- A cross-cutting concern is a concern that can affect the whole application and should be centralized in one location in code such as
+  logging, security etc.
+- Benefits
+	1. Aspect code is defined in a single class which promotes code reuse, easy to change and much better than being scattered everywhere.
+	2. Business code is cleaner and reduce code complexity.
+	3. It is based on configuration.
+- Use Cases
+	1. It is mostly used in logging, security, transactions.
+	2. In Audit logging like who, when, where, what
+	3. Log Exceptions and notify devops team via email/sms.
+	4. In API management, no. of times a method has been called, identify average load, top user etc.
+- Terminology
+	1. Aspect - module of a code for a cross-cutting concern (logging, security).
+	2. Advice - What action to be taken and when it should be applied.
+	3. Join Point - When to apply code during program execution.
+	4. Pointcut - A predicate expression for where advice should be applied. We can use wildcard (*) on return type or method name like (* add()).
+- Advice Types
+	1. Before Advice - run before the method.
+	2. After finally Advice - run after the method (finally).
+	3. After returning Advice - run after the method (success execution).
+	4. After throwing Advice - run after method (if exception thrown).
+	5. Around Advice - run before and after the method.
+- Weaving	
+	1. Connecting aspects to target objects to create an advised object.
+	2. Different types of weaving - compile time, runtime or load time
+	3. Regarding performance, runtime weaving is the best.
+- There are 2 framework for AOP
+	1. Spring AOP
+		Spring AOP is simpler to use. It uses proxy pattern. It can migrate to AspectJ when using @Aspect annotation.
+		Spring AOP only supports method-level join points. It can apply aspects to beans created by spring app context.
+		Spring AOP uses some of the AspectJ annotations and classes.
+	2. AspectJ
+		AspectJ supports all join points. It works with any POJO, not just beans. Faster performance than Spring AOP.
+		AspectJ points syntax can become complex. Compile time weaving requies extra compilation step.
+- Spring AOP supports only public modifier.
+
+- example -
+		@Aspect
+		@Component
+		public class LoggingAspect {
+			@Before("execution(public void addAccount())") //execution stuff is pointcut expression. modifier is optional. 
+			public void beforeAdvice() {
+				System.out.println("before advice() done");
+			}
+		}
+- @Before("execution(* add*()") will match any return type for add* methods.		
+- For param pattern - 
+	1. () matches a method with no arguments
+	2. (*) matches a method with one argument of any type
+	3. (..) matches a method with 0 or more arguments of any type.
+- Pointcut declaration solves our problem of resuing pointcut expressions. We can update pointcut in one location. Also we can share and combine 
+  pointcut expressions.
+	In aspect, we can define pointcut like below-
+		@Pointcut("execution(* com.uc.*.*(..))")
+		private void forAnyPackage(){}
+		
+		@Before("forAnyPackage()")
+		public void beforeAddAdvice(){...}
+		@Before("forAnyPackage()")
+		public void beforeShowAdvice(){...}
+- We can combine pointcuts declaration like below-
+		@Pointcut("execution(* com.uc.*.get(..))")
+		private void getter(){} 
+		
+		@Pointcut("forAnyPackage() && !getter(")
+		private void forAllMethodsExceptGetter(){} 
+		
+		@Before("forAllMethodsExceptGetter())
+		public void beforeAnyAdvice(){...}
+- Ordering Aspects - We can control order on Aspects using the @Order annotation. Lower number have higher precedence. Negative no. are allowed.
+  Does not have to be consecutive.
+		@Aspect @Component @Order(1)
+		public class MyAspect{}
+  If multiple aspects have same order then any of the one runs before another i.e., order is undefined. 
+- JoinPoints has metadata about method call.
+		
 * Spring Data Jdbc
 	Spring Data JDBC is a persistence framework.
 	It doesn't provide cache, lazy loading but provide mapped entities, repositories, query annotations, and JdbcTemplate.
