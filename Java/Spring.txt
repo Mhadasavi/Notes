@@ -167,7 +167,10 @@
 		public class MyAspect{}
   If multiple aspects have same order then any of the one runs before another i.e., order is undefined. 
 - JoinPoints has metadata about method call.
-		
+- @AfterReturning advice - It mainly used for post process the data before returning to caller.
+	ex- @AfterReturning(pointcut="execution(...)", returning="result")
+		public void afterAdvice(JoinPoint point, List<T> result){SOP(result);}
+
 * Spring Data Jdbc
 	Spring Data JDBC is a persistence framework.
 	It doesn't provide cache, lazy loading but provide mapped entities, repositories, query annotations, and JdbcTemplate.
