@@ -166,6 +166,7 @@
 		@Aspect @Component @Order(1)
 		public class MyAspect{}
   If multiple aspects have same order then any of the one runs before another i.e., order is undefined. 
+- JoinPoints has metadata about method call.
 		
 * Spring Data Jdbc
 	Spring Data JDBC is a persistence framework.
