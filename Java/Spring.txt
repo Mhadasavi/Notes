@@ -138,6 +138,45 @@
 			}
 		}
 - @Before("execution(* add*()") will match any return type for add* methods.		
+<<<<<<< HEAD
+	- For param pattern - 
+		1. () matches a method with no arguments
+		2. (*) matches a method with one argument of any type
+		3. (..) matches a method with 0 or more arguments of any type.
+	- Pointcut declaration solves our problem of resuing pointcut expressions. We can update pointcut in one location. Also we can share and combine 
+	  pointcut expressions.
+		In aspect, we can define pointcut like below-
+			@Pointcut("execution(* com.uc.*.*(..))")
+			private void forAnyPackage(){}
+			
+			@Before("forAnyPackage()")
+			public void beforeAddAdvice(){...}
+			@Before("forAnyPackage()")
+			public void beforeShowAdvice(){...}
+	- We can combine pointcuts declaration like below-
+			@Pointcut("execution(* com.uc.*.get(..))")
+			private void getter(){} 
+			
+			@Pointcut("forAnyPackage() && !getter(")
+			private void forAllMethodsExceptGetter(){} 
+			
+			@Before("forAllMethodsExceptGetter())
+			public void beforeAnyAdvice(){...}
+	- Ordering Aspects - We can control order on Aspects using the @Order annotation. Lower number have higher precedence. Negative no. are allowed.
+	  Does not have to be consecutive.
+			@Aspect @Component @Order(1)
+			public class MyAspect{}
+	  If multiple aspects have same order then any of the one runs before another i.e., order is undefined. 
+	- JoinPoints has metadata about method call.
+- @AfterReturning - It post process the data before returning to caller. It formats the data.
+	@AfterReturning(pointcut="execution(* package.method(..))", returning="result")
+	public void afterReturningAdvice(JoinPoint joinPoint, List<Account> result){}
+- @AfterThrowing - It will execute if there wil be any exception. Use cases are-
+	Log the exception.
+	Notify the devops team via email
+	Encapsulate this functionality in AOP aspect for easy reuse.
+		
+
 - For param pattern - 
 	1. () matches a method with no arguments
 	2. (*) matches a method with one argument of any type
@@ -170,6 +209,7 @@
 - @AfterReturning advice - It mainly used for post process the data before returning to caller.
 	ex- @AfterReturning(pointcut="execution(...)", returning="result")
 		public void afterAdvice(JoinPoint point, List<T> result){SOP(result);}
+
 
 * Spring Data Jdbc
 	Spring Data JDBC is a persistence framework.
