@@ -209,7 +209,11 @@
 - @AfterReturning advice - It mainly used for post process the data before returning to caller.
 	ex- @AfterReturning(pointcut="execution(...)", returning="result")
 		public void afterAdvice(JoinPoint point, List<T> result){SOP(result);}
-
+- @Afterthrow - 
+- @After - It works like finally. It will execute in the case of success or failure.
+	It executes before afterthrow.
+	It doesnt have access to the exception. If you need exception then you can use afterthrow advice.
+	
 
 * Spring Data Jdbc
 	Spring Data JDBC is a persistence framework.
