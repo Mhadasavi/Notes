@@ -147,6 +147,14 @@
 	
 	xxiv. @Before annotated methods run exactly before all methods yy with pointcut expression.
 	
+	xxv. @EnableWebMvc - It enables Spring MVC support through a Java configuration class such as registering controllers and mappings, type converters, validation support, message converters and exception handling. It is similar to <mvc:annotation-driver/>
+			ex- @EnableWebMvc
+				@Configuration
+				public class WebConfig {
+
+					/// ...
+				}
+	
 9. Spring Profiles -  allowing us to map our beans to different profiles — for example, dev, test, and
    prod.
    ex- @Component
