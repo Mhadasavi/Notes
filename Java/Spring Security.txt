@@ -1,0 +1,16 @@
+1. Spring Security?
+- A framework which provides features like authentication and authorization.
+- Authentication is the process of authenticate or identifying the user that wants to access.
+- Authorization is the process to allow the authority to perform actions in the application. It can be used to authorize the web request etc.
+
+2. Advantages?
+- Integration with spring mvc.
+- CSRF protection
+- java configuration support
+- Supports Oauth2.0
+- Reactive support
+
+3. Servlet Filters
+- Servlet filters are used to pre-process / post-process web request.
+- It can route web requests based on security logic.
+- Spring provides a bulk of security functionality with servlet filters.
