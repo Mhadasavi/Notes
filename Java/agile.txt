@@ -9,12 +9,14 @@ The only sure way to prevent SQL Injection attacks is input validation and param
 Agile
 
 - Agile simply means continuous incremental improvement through small and frequent releases.
-- There are two different roles in a Agile methodology. These are the Scrum Master and Product Owner.
+- There are two different roles in an Agile methodology. These are the Scrum Master and Product Owner.
 	1. Scrum Master
-	The Scrum Master is a team leader which remove all the blocks that occur related to devs or project etc.
+	The Scrum Master is a team leader who removes all the blockers that occur related to devs or projects etc.
 	2. Product Owner
-	They are the stakeholder that represent the client and define the requirement and priortize them.
-	
+	They collects requirement from stakeholder that represents the client and prioritize them and adds into the backlog.
+- Backlog contains features, bugs fixes/enhancements. It must be in ordered by priority and business value.
+- Backlog items are input to the sprint to be implemented and added to an increment.
+
 - Product owner creates the User stories of different tasks and categorize them into sprint.
 - Scrum Master assigns those User stories to devs.
 - Devs will analyze those stories and share their estimates.
