@@ -9,7 +9,7 @@ JSON
 * Lightweight data format for storing and exchanging data ... plain text.
 * Langugage independent ... not just for javascript.
 * Can use with any programming language: java,c#, python etc...
-*Data bindinng is the process of converting json data to a java pojo. Also known as mappng , serialization/deserialization, marshalling/unmarshalling.
+*Data bindinng is the process of converting json data to a java pojo. Also known as mapping , serialization/deserialization, marshalling/unmarshalling.
 
 Jacskon data binding
 *Spring uses the jackson project behind the scenes.
@@ -17,6 +17,7 @@ Jacskon data binding
 *By default, jackson will call appropriate getter/setter method.So if we are converting from json to pojo, it will call our given setter method and vice versa. 
 *When building spring rest applications, spring will automatically handle jackson integration.
 * JSON data being passed to rest controller is converted to pojo, and java object being returned from rest controller is converted to json atuomatically. 
+* We can ignore json unknown properties by adding the @JsonIgnoreProperties(ignoreUnknown=true) on the POJO.
 
 Rest over Http
 * Most common use of rest is over http.
