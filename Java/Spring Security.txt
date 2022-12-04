@@ -14,3 +14,6 @@
 - Servlet filters are used to pre-process / post-process web request.
 - It can route web requests based on security logic.
 - Spring provides a bulk of security functionality with servlet filters.
+
+4. AbstractSecurityWebApplicationInitializer
+- Special class to register the spring security filters.
