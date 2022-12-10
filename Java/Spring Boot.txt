@@ -2,7 +2,9 @@
 - Spring Boot is a project that is built on the top of the Spring Framework.
 - It provides an easier and faster way to set up, configure, and run the applications.
 - There is no requirement for XML configuration.
-
+Note: We can start spring boot app from command line 
+	a. mvnw spring-boot:run from the app directory.
+	b. mvnw package -> cd target -> java -jar appName.jar
 2. Advantages
 - It increases productivity and reduces development time.
 - It also minimizes writing multiple boilerplate codes, XML configuration, and annotations.
