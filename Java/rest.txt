@@ -1,9 +1,23 @@
+WEB SERVICES
+* It is a technology to communicate one application with another irrespective of programming language.
+* It is a way to achieve interoperability.
+* Request is input to webservice while response is output to webservices.
+* Service provider is the one that host web services and Service consumer is the one that consumes that web services.
+* Transport means how the services is called? Is the service exposed over the internet(HTTP) or queue(MQ).
+
+SOAP
+* It uses xml to create webservices.
+* The structure of soap contains envelope, header(optional) and body.
+* Soap services can be exposed over HTTP or MQ.
+
  REST(Representational State transfer)
 To connect to the weather service we can make a rest api call over http.
 It is lightweight approach for communicating between applications.
 REst is language independent.
 Client and server can use any programming language.
 Rest application use any data format.Commonly see xml and json(Javascript object notation). json is most popular and modern.
+Http request contains header, body and method. while Http response contains response with status code.
+Rest services can be exposed over HTTP only.
 
 JSON
 * Lightweight data format for storing and exchanging data ... plain text.
@@ -60,3 +74,14 @@ Exception handler will return a ResponseEntity.
 ResponseEntity is a wrapper for the HTTP response object.
 ResponseEntity provides fine-grained control to specify:HTTP staus code, HTTP headers and  Response body.
 @ControllerAdvice is similar to interceptor/filter.It pre-process requests to controllers. Post-process responses to handle exceptions. Perfect for globle exception handling. Ex-when we apply same exception on multiple controllers.
+
+Interview Questions
+
+* How does data exchange between application takes place?
+With the help of request and response.
+
+* How can we make web services platform independent?
+We can makes the request and response platform independent by using data exchange format like xml or json.
+
+* How does the application know the format of request and response?
+By providing service definition which contains request/response format, request structure, response structure and endpoint.
