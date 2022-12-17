@@ -168,3 +168,17 @@ Note: We can start spring boot app from command line
 		public class DevDatasourceConfig
 
 Component scanning in spring boot and how it works 
+
+in28 Mins.
+
+1. How are our request handled?
+-  By DispatcherServlet (front controller pattern)
+
+2. How does bean object get converted to json?
+-  @ResponseBody + JacksonHttpMessageConverters
+
+3. Who is configuring error mapping?
+-  Auto Configuration (ErrorMvcautoconfiguration)
+
+4. PUT vs Patch
+-  Put updates an exisiting resource while Patch updates part of resource.
