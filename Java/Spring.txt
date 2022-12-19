@@ -53,6 +53,7 @@
 	2)	byName	injects the bean based on the property name. It uses setter method.
 	3)	byType	injects the bean based on the property type. It uses setter method.
 	4)	constructor	It injects the bean using constructor
+- In case of constructor injection, there is no need to define it when we have only one constructor. It is optional.
 - when we have multiple implementation of interface, we can use @qualifer. we can specify correct implementation class in @qualifer.
 	- we can apply @qualifer with constructor, setter and field injection.
 	- PostConstruct annotation is used on a method that needs to be executed after constructor & dependency injection is done to perform any initialization.
