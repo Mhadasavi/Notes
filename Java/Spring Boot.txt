@@ -161,6 +161,9 @@ Note: We can start spring boot app from command line
 			ex- @Value("${first.name}")
 				Private String name;
 				
+	xxvii. @Valid - This invokes the object validation when binding occurs. It is used with method parameter. 
+			ex- anyMethod(@Valid @RequestBody User user){}
+			
 9. Spring Profiles -  allowing us to map our beans to different profiles — for example, dev, test, and
    prod.
    ex- @Component
