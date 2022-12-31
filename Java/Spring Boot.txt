@@ -185,3 +185,13 @@ in28 Mins.
 
 4. PUT vs Patch
 -  Put updates an exisiting resource while Patch updates part of resource.
+
+5. Content Negotiation
+-  Content Negotiation helps the Consumer and Provider interact about the data exchange format.
+   When a consumer sends a request, it can specify two HTTP Headers related to Content Negotiation
+    i. Accept and
+    ii. Content-Type
+	Content-Type indicates the content type of the body of the request.
+	Accept indicates the expected content type of the response.
+	Basically this enables consumer to get the response either in json or xml.
+	We can add "jackson-dataformat-xml" dependency to enable this.
