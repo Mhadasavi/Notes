@@ -199,3 +199,5 @@ in28 Mins.
 6. Internationalization
 	We could have users around the world with different languages. So we use i18n so that all the users 
 	can use the application.
+	For this, we can create a property file (message.properties) and in the controller, we can use that property by MessageSource.
+	also we have to use Locale. To test this, we have to add Accept-Language - {en/dl}in header request.
