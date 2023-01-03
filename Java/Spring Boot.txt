@@ -201,3 +201,12 @@ in28 Mins.
 	can use the application.
 	For this, we can create a property file (message.properties) and in the controller, we can use that property by MessageSource.
 	also we have to use Locale. To test this, we have to add Accept-Language - {en/dl}in header request.
+	
+7. Versioning
+	APIs only need to be up-versioned when a breaking change is made. 
+	Breaking changes include:
+    a change in the format of the response data for one or more calls
+    a change in the request or response type (i.e. changing an integer to a float)
+    removing any part of the API.
+	There are several ways to version a REST API. One common approach is to include the version number in the URL path, like this:
+		https://api.example.com/v1/resources
