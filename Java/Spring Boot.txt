@@ -210,3 +210,15 @@ in28 Mins.
     removing any part of the API.
 	There are several ways to version a REST API. One common approach is to include the version number in the URL path, like this:
 		https://api.example.com/v1/resources
+	Some other approaches include-
+		a. Request parameter versioning
+		b. Custom header versioning
+		c. Media type versioning (accept header)
+	
+8. HATEOAS (HyperMedia as the engine of application state)
+	- How about enhancing your rest api to tell consumers how to perform subsequent actions? 
+	  By using hateoas
+	- We can implement this by 
+		a. Custom format and implementation
+		b. Use standard implementation
+	Suppose, we have requested a GET request for localhost:8080/users/1, it returns the details of user id 1. Along with this, it also returns a field called link that contains a link (localhost:8080/users) of all users so that consumers can retrieve all the users. This concept is called HATEOAS.
