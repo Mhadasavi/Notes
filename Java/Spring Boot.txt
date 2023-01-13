@@ -222,3 +222,11 @@ in28 Mins.
 		a. Custom format and implementation
 		b. Use standard implementation
 	Suppose, we have requested a GET request for localhost:8080/users/1, it returns the details of user id 1. Along with this, it also returns a field called link that contains a link (localhost:8080/users) of all users so that consumers can retrieve all the users. This concept is called HATEOAS.
+	
+9. @JsonProperty("") It customized the element name in our response.
+	ex- @JsonProperty("user_name")
+		private String name;
+		
+10. Filtering - It returns only selected fields. There are 2 types of filtering-
+	* Static filtering- Same filtering for a bean across different rest api. @jsonIgnoreProperties, @jsonIgnore
+	* Dynamic filtering- Customize filtering for a bean for specific rest api. @JsonFilter with filterprovider
