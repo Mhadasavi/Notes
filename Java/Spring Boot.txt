@@ -19,6 +19,9 @@ Note: We can start spring boot app from command line
 
 5. Spring Boot Actuator
 - Actuator is a tool which has HTTP endpoints. It helps us to monitor the application when it is pushed to production.
+  Some of the enpoints are-
+  Beans - complete list of spring beans in app
+  Health - Application health info
 
 6. thymeleaf
 - It is a server side Java template engine for web application.
