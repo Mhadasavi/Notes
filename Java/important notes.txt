@@ -37,7 +37,7 @@ A. Using new keyword
 This is the most common way to create an object in java. Almost 99% of objects are created in this way.
 MyObject object = new MyObject();
 
-B. Using Class.forName()
+B. Using Class.forName() (Reflection)
 If we know the name of the class & if it has a public default constructor we can create an object in this way.
 c1 obj1=(c1)Class.forName("package.c1").newInstance();
 or
@@ -190,7 +190,7 @@ A object not having any name is called anonymous object.
 anonymous object use only one time and eligible for garbage collection whereas reference variable not eligible for garbage collection.
 If we use object for single time, anonymous object is best. And for multiple time, reference object is best.
 
-*Abstraction is a process of hiding the implementation and showing only the functionality to the user.ex-we send sms where we type msg and send the msg,we don't know the internal processing about the message delivery.There are 2 ways to achieve abstraction- abstract class(0-100%) and interface(100%).
+*Abstraction is a process of hiding the implementation and showing only the functionality to the user.ex-we send sms where we type msg and send the msg,we don't know the internal processing about the message delivery.There are 2 ways to achieve abstraction- abstract class(0-100) because it has method implementation along with abstraction and interface(100%).
 A class which declared abstract is known as abstract class and having abstract and non-abstract methods.It needs to be extended and its method implemented.It cannot be instantiated.It can have final method,static method and constructor also.
 Any method which only declares and not be define is known as Abstract method.
 eg= abstract void method();
@@ -208,9 +208,11 @@ methods can be declare only not define in interface.
 Interface extends interface.Interface support multiple inheritance because there is no ambiguity because its implementation is provided by the implementation class. 
 Interface are of 3 types-
 Marker interface-no method(serialization, remote and etc)(use to give the permission in class)
+A marker interface in Java is an interface that has no methods or fields, and its sole purpose is to indicate that a class implementing the interface has a certain property or behavior. It is used as a marker or a tag to indicate that a class has a certain behavior or capability.
+For example, the Serializable interface is a marker interface that indicates that a class can be serialized, which means that its state can be saved to a file or transmitted over a network. Classes that implement Serializable can be written to and read from a file or a network stream using the Java I/O API.
 Single Abstract method(SAM)-only one method [in java 8,it is also called functional interface]
 Normal interface-it is normal
-Functional interface has a special feature that is we do not create a class for define a method.
+Functional interface has a special feature that is we do not create a class for define a method. //need to look at this
 eg- a obj=()-> System.out.println("this is the define method of interface");
 abstract class vs interface
 1.abs cls decalred with abstract keyword while interface is declared with interface.
