@@ -1,0 +1,27 @@
+1. What is docker?
+- Docker is a centralized platform for packaging, deploying, and running applications. 
+- Before Docker, many users face the problem that a particular code is running in the developer's system but not in the user's system. 
+  So, the main reason to develop docker is to help developers to develop applications easily, ship them into containers, and can be deployed anywhere.
+- Docker uses container on the host's operating system to run applications. It allows applications to use the same Linux kernel as a system on the host 
+  computer, rather than creating a whole virtual operating system.
+
+2. Docker Containers
+- Docker containers are the lightweight alternatives of the virtual machine. 
+- It allows developers to package up the application with all its libraries and dependencies, and ship it as a single package. 
+- The advantage of using a docker container is that you don't need to allocate any RAM and disk space for the applications. It automatically generates 
+  storage and space according to the application requirement.
+  
+  
+3. Virtual Machine
+- A virtual machine is a software that allows us to install and use other operating systems (Windows, Linux, and Debian) simultaneously on our machine.
+- The operating system in which virtual machine runs are called virtualized operating systems. 
+- These virtualized operating systems can run programs and preforms tasks that we perform in a real operating system.
+
+4. Containers Vs. Virtual Machine
+	___________________________________________________________________________________________________________
+	|	Containers											|			Virtual Machine						   |
+	|_______________________________________________________|__________________________________________________|
+	|Integration in a container is faster and cheap.		|	Integration in virtual is slow and costly. 	   |
+	|No wastage of memory.									|	Wastage of memory.							   |
+	|It uses the same kernel, but different distribution.	|	It uses multiple independent operating systems.|
+	|_______________________________________________________|__________________________________________________|
